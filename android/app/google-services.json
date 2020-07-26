@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "157130739120",
+    "firebase_url": "https://lownmower-35343.firebaseio.com",
+    "project_id": "lownmower-35343",
+    "storage_bucket": "lownmower-35343.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:157130739120:android:486251e3b1a3935d0eda75",
+        "android_client_info": {
+          "package_name": "lawn.com.lawnmower"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "157130739120-p3rqmghn65kab7ne9bde78o4144jpaad.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDASfSb3jurLmtILLat5noJKybZ26wlV_U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "157130739120-p3rqmghn65kab7ne9bde78o4144jpaad.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
