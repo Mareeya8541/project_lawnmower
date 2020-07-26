@@ -174,6 +174,7 @@ class _LoginPageState extends State<LoginPage> {
             
     );
   }
+  
   Widget logologin(){
     return Container(child: Container(
           width: 350.0,

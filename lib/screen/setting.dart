@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lawnmower/screen/forereach.dart';
+import 'package:lawnmower/screen/reverse.dart';
+import 'package:lawnmower/screen/setStart.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -20,7 +23,7 @@ class _SettingPageState extends State<SettingPage> {
           ),
           onPressed: (){
             var route = MaterialPageRoute(
-            builder: (BuildContext context) => SettingPage()
+            builder: (BuildContext context) => SettingStartPage()
           );
           Navigator.of(context).push(route);
           },
@@ -50,7 +53,7 @@ class _SettingPageState extends State<SettingPage> {
           ),
           onPressed: (){
             var route = MaterialPageRoute(
-            builder: (BuildContext context) => SettingPage()
+            builder: (BuildContext context) => MoveForwardPage()
           );
           Navigator.of(context).push(route);
           },
@@ -80,7 +83,7 @@ class _SettingPageState extends State<SettingPage> {
           ),
           onPressed: (){
             var route = MaterialPageRoute(
-            builder: (BuildContext context) => SettingPage()
+            builder: (BuildContext context) => ReversePage()
           );
           Navigator.of(context).push(route);
           },
