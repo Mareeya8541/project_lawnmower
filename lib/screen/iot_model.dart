@@ -2,10 +2,10 @@
 
 class IotModel{
   int buttonstr,buttonstop;
-  String namestr,user,pass;
+  String namestr,user,pass,delay;
 
   IotModel(
-    this.buttonstr,this.buttonstop,this.user,this.pass
+    this.buttonstr,this.buttonstop,this.user,this.pass,this.delay
   );
 
     IotModel.formMap(Map<dynamic,dynamic>map){
@@ -13,6 +13,7 @@ class IotModel{
       buttonstop = map['buttonstop'];
       user=map['user'];
       pass=map['pass'];
+      delay=map['delay'];
     }
 
     Map<dynamic,dynamic> toMap(){
@@ -22,6 +23,7 @@ class IotModel{
       map['buttonstop']=buttonstop;
       map['user']=user;
       map['pass']=pass;
+      map['delay']=delay;
       
 
       return map;

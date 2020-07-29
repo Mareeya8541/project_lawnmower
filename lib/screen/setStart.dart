@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lawnmower/screen/home.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:lawnmower/screen/iot_model.dart';
 
 class SettingStartPage extends StatefulWidget {
   @override
@@ -8,13 +10,53 @@ class SettingStartPage extends StatefulWidget {
 }
 
 class _SettingStartPageState extends State<SettingStartPage> {
+  IotModel iotModel;
+  var textEditdelay = new TextEditingController();
+   String delay="";
+   FirebaseDatabase firebaseDatabase = FirebaseDatabase.instance;
+
   @override
+
+  void initState() {
+    super.initState();
+    readData();
+    
+  }
+
+  Future <void> readData() async {
+    print('Read Data Work');
+    DatabaseReference databaseReference = firebaseDatabase.reference().child('start');
+    await databaseReference.once().then((DataSnapshot dataSnapshot){
+      print('data=>${dataSnapshot.value.toString()}');//ทุกอย่างใน document ถูกอ่านหมดเลย
+      iotModel=IotModel.formMap(dataSnapshot.value);
+      delay=iotModel.delay;
+      
+      // strButton=iotModel.buttonstr;
+      // stopButton=iotModel.buttonstop;
+    });
+   
+  }
+
+  Future<void> editDatabase() async{//โยนค่าขึ้น firebase
+    FirebaseDatabase firebaseDatabase= FirebaseDatabase.instance;
+    DatabaseReference databaseReference = firebaseDatabase.reference().child('start');
+     Map<dynamic,dynamic> map = Map();
+     map['delay']=textEditdelay.text;
+    
+    //  map['buttonstr']=strButton;
+    //  map['buttonstop']=stopButton;
+     
+     await databaseReference.set(map).then((response){
+       print('Edit Success');
+     });
+  
+  }
 
   Widget showText() {
     return Text(
-      'ตั้งค่าหน่วงเวลาสตาร์ท',
+      'ตั้งเวลาสตาร์ท',
       style: TextStyle(
-          fontSize: 30.0, 
+          fontSize: 35.0, 
           fontWeight: FontWeight.bold,
           fontFamily: 'Muffin-Regular', 
           color: Colors.black),
@@ -22,20 +64,25 @@ class _SettingStartPageState extends State<SettingStartPage> {
   }
 
   Widget startDelay(){
+    readData();
+    editDatabase();
     return Container(
       width: 300.0,
       child: TextFormField(
         inputFormatters: [WhitelistingTextInputFormatter(RegExp("[0-9]"))],
         maxLines: null,
         keyboardType: TextInputType.number,
-        //controller: textEditEmail,
+        //obscureText: true,
+        controller: textEditdelay,
+        //delay=textEditdelay.text,
         decoration: InputDecoration(
-          icon: Icon(Icons.settings,
+          border: OutlineInputBorder(),
+          icon: Icon(Icons.timer,
           size: 30.0,
           color: Colors.black,
           ),
-          labelText: '',
-          hintText: ''
+          labelText: 'ระบุเวลาที่ต้องการ',
+          hintText: 'วินาที'
         ),
         style: TextStyle(
           fontSize:18.0,
@@ -59,7 +106,7 @@ class _SettingStartPageState extends State<SettingStartPage> {
             child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-                showText(),startDelay()
+                startDelay()
               ],
           ),
           ),
@@ -140,9 +187,23 @@ class _SettingStartPageState extends State<SettingStartPage> {
           ),);
   }
 
+  Widget blockcenter1(){
+    return Container(child: Container(
+          width: 350.0,
+          padding: EdgeInsets.all(16.0),
+            child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              showText()
+              ],
+          ),
+          ),);
+  }
+
+
   Widget buttonchek(){
+    readData();
     return Container(
-      //padding: new EdgeInsets.all(16.0),
       child: SizedBox(
         height: 60,
         width: 60,
@@ -152,17 +213,80 @@ class _SettingStartPageState extends State<SettingStartPage> {
             //borderRadius: BorderRadius.circular(80.0)
           ),
           onPressed: (){
+           // delay=textEditdelay,;
             var route = MaterialPageRoute(
-            builder: (BuildContext context) => Home()
+            builder: (BuildContext context) => Home(
+              // valueFromSetStart: textEditdelay.text,
+            )
           );
           Navigator.of(context).push(route);
+          editDatabase();
           },
           icon: Icon(Icons.check,size: 20,),
           label: Text(''),
           ),
+          
       ),
     );
   }
+
+  //  Widget bottonchecktest(){
+  //   return Container(
+  //     padding: new EdgeInsets.all(16.0),
+  //     child: SizedBox(
+  //       height: 100,
+  //       width: 250,
+  //       child:  RaisedButton.icon(
+  //         color: Colors.green[200],
+  //         shape: RoundedRectangleBorder(
+  //           borderRadius: BorderRadius.circular(15.0)
+  //         ),
+  //         onPressed: (){
+  //           setState(() {
+  //             delay=delay;
+  //             if(delay=="0"){
+  //               //fiveminute=1;
+  //              // fivemin="5 Baht \n10 minutes";
+  //               //credit1=iotModel.credit1;
+  //               readData();
+  //               creditint =int.parse(credit1)-5;
+  //               if(creditint<0){
+  //                 creditint=0;
+  //               }
+  //               credit1=(creditint).toString();
+  //               pushbutton=5;
+  //             }
+  //             else {
+  //              fiveminute=0;
+  //              //fivemin="5 Baht \n10 minutes";
+  //               //credit1=iotModel.credit1;
+  //               readData();
+  //               creditint =int.parse(credit1)-5;
+  //               if(creditint<0){
+  //                 creditint=0;
+  //               }
+  //               credit1=(creditint).toString();
+  //               pushbutton=5;
+
+  //             }
+  //             print('$fiveminute');
+  //             editDatabase();
+  //             readData();
+             
+  //           });
+  //         },
+  //         icon: Icon(Icons.money_off),
+  //         label: Text('$fivemin',style: TextStyle(
+  //          fontSize:20.0,
+  //          color:Colors.black,
+  //          fontWeight:FontWeight.bold,
+  //          fontFamily: 'Righteous-Regular'
+  //     ),),
+  //         ),
+  //     ),
+  //   );
+  // }
+
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -183,8 +307,10 @@ class _SettingStartPageState extends State<SettingStartPage> {
           child: Center(
             child : Wrap(
               children: <Widget>[
+                blockcenter1(),
                 blockDelay(),
-                blockcenter()
+                blockcenter(),
+                //bottonchecktest()
             ],)
           ),
       ),);

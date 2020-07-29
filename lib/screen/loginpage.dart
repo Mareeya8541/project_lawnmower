@@ -30,26 +30,26 @@ class _LoginPageState extends State<LoginPage> {
 
   Future <void> readData() async {
     print('Read Data Work');
-    DatabaseReference databaseReference = firebaseDatabase.reference().child('lawnmower');
+    DatabaseReference databaseReference = firebaseDatabase.reference().child('login');
     await databaseReference.once().then((DataSnapshot dataSnapshot){
       print('data=>${dataSnapshot.value.toString()}');//ทุกอย่างใน document ถูกอ่านหมดเลย
       iotModel=IotModel.formMap(dataSnapshot.value);
       user=iotModel.user;
       pass=iotModel.pass;
-      strButton=iotModel.buttonstr;
-      stopButton=iotModel.buttonstop;
+      // strButton=iotModel.buttonstr;
+      // stopButton=iotModel.buttonstop;
     });
    
   }
 
   Future<void> editDatabase() async{//โยนค่าขึ้น firebase
     FirebaseDatabase firebaseDatabase= FirebaseDatabase.instance;
-    DatabaseReference databaseReference = firebaseDatabase.reference().child('lawnmower');
+    DatabaseReference databaseReference = firebaseDatabase.reference().child('login');
      Map<dynamic,dynamic> map = Map();
      map['user']=user;
      map['pass']=pass;
-     map['buttonstr']=strButton;
-     map['buttonstop']=stopButton;
+    //  map['buttonstr']=strButton;
+    //  map['buttonstop']=stopButton;
      
      await databaseReference.set(map).then((response){
        print('Edit Success');
@@ -78,6 +78,7 @@ class _LoginPageState extends State<LoginPage> {
       child: TextFormField(
         controller: textEditEmail,
         decoration: InputDecoration(
+          //border: OutlineInputBorder(),
           icon: Icon(Icons.email,
           size: 30.0,
           color: Colors.black,
@@ -102,6 +103,7 @@ class _LoginPageState extends State<LoginPage> {
         obscureText: true,
         controller: textEditPass,
         decoration: InputDecoration(
+          //border: OutlineInputBorder(),
           icon: Icon(Icons.vpn_key,
           size: 30.0,
           color: Colors.black,

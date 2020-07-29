@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lawnmower/screen/home.dart';
 
-class MoveForwardPage extends StatefulWidget {
+class SlowTurnPage extends StatefulWidget {
   @override
-  _MoveForwardPageState createState() => _MoveForwardPageState();
+  _SlowTurnPageState createState() => _SlowTurnPageState();
 }
 
-class _MoveForwardPageState extends State<MoveForwardPage> {
+class _SlowTurnPageState extends State<SlowTurnPage> {
 
   Widget textLeft() {
     return Text(
@@ -47,7 +47,7 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
     );
   }
 
-  Widget blockcenter(){
+Widget blockcenter(){
     return Container(child: Container(
           width: 400.0,
           padding: EdgeInsets.all(16.0),
@@ -98,7 +98,71 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
     );
   }
 
-  Widget blockforward(){
+  Widget blockcenter2(){
+    return Container(child: Container(
+          width: 400.0,
+          padding: EdgeInsets.all(16.0),
+            child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              textRight(),rightWhell()
+              ],
+          ),
+          ),);
+  }
+
+  Widget textTime() {
+    return Text(
+      'เวลา',
+      style: TextStyle(
+          fontSize: 35.0, 
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Muffin-Regular', 
+          color: Colors.black),
+    );
+  } 
+
+  Widget settingTime(){
+    return Container(
+      width: 300.0,
+      child: TextFormField(
+        inputFormatters: [WhitelistingTextInputFormatter(RegExp("[0-9]"))],
+        maxLines: null,
+        keyboardType: TextInputType.number,
+        //controller: textEditEmail,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          icon: Icon(Icons.timer,
+          size: 30.0,
+          color: Colors.black,
+          ),
+          labelText: 'ระบุเวลาที่ต้องการ',
+          hintText: ''
+        ),
+        style: TextStyle(
+          fontSize:18.0,
+           //color:Colors.deepOrange,
+           fontWeight:FontWeight.bold,
+           fontFamily: 'Righteous-Regular'
+      ),
+      ),
+    );
+  }
+
+Widget blocksettime(){
+    return Container(child: Container(
+          width: 400.0,
+          padding: EdgeInsets.all(16.0),
+            child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              textTime(),settingTime()
+              ],
+          ),
+          ),);
+  }
+
+   Widget blockforward(){
     return Container(
       decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
@@ -111,25 +175,13 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
                 blockcenter(),
-                blockcenter2()
+                blockcenter2(),
+                blocksettime()
               ],
           ),
           ),
             
     );
-  }
-
-  Widget blockcenter2(){
-    return Container(child: Container(
-          width: 400.0,
-          padding: EdgeInsets.all(16.0),
-            child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              textRight(),rightWhell()
-              ],
-          ),
-          ),);
   }
 
   Widget buttonchek(){
@@ -160,7 +212,7 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title : Text('ตั้งค่าเดินหน้า',
+        title : Text('ตั้งค่าเลี้ยวแบบช้า',
          style: TextStyle(
            fontSize: 35.0,
            fontWeight:FontWeight.bold,

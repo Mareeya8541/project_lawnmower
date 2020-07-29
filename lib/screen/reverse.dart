@@ -10,7 +10,7 @@ class ReversePage extends StatefulWidget {
 class _ReversePageState extends State<ReversePage> {
   Widget textLeft() {
     return Text(
-      'ตั้งค่าล้อซ้าย',
+      'ล้อซ้าย',
       style: TextStyle(
           fontSize: 35.0, 
           fontWeight: FontWeight.bold,
@@ -28,11 +28,12 @@ class _ReversePageState extends State<ReversePage> {
         keyboardType: TextInputType.number,
         //controller: textEditEmail,
         decoration: InputDecoration(
-          icon: Icon(Icons.settings,
+          border: OutlineInputBorder(),
+          icon: Icon(Icons.local_car_wash,
           size: 30.0,
           color: Colors.black,
           ),
-          labelText: '',
+          labelText: 'ระบุค่าที่ต้องการ',
           hintText: ''
         ),
         style: TextStyle(
@@ -45,25 +46,6 @@ class _ReversePageState extends State<ReversePage> {
     );
   }
 
-  Widget blockforward(){
-    return Container(
-      decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      gradient: LinearGradient(
-                          colors: [Colors.white,Colors.white])),
-        child: Container(
-          width: 350.0,
-          padding: EdgeInsets.all(16.0),
-            child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-                leftWhell()
-              ],
-          ),
-          ),
-            
-    );
-  }
   Widget blockcenter(){
     return Container(child: Container(
           width: 400.0,
@@ -71,7 +53,7 @@ class _ReversePageState extends State<ReversePage> {
             child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              textLeft(),blockforward()
+              textLeft(),leftWhell()
               ],
           ),
           ),);
@@ -79,7 +61,7 @@ class _ReversePageState extends State<ReversePage> {
 
   Widget textRight() {
     return Text(
-      'ตั้งค่าล้อขวา',
+      'ล้อขวา',
       style: TextStyle(
           fontSize: 35.0, 
           fontWeight: FontWeight.bold,
@@ -97,11 +79,12 @@ class _ReversePageState extends State<ReversePage> {
         keyboardType: TextInputType.number,
         //controller: textEditEmail,
         decoration: InputDecoration(
-          icon: Icon(Icons.settings,
+          border: OutlineInputBorder(),
+          icon: Icon(Icons.local_car_wash,
           size: 30.0,
           color: Colors.black,
           ),
-          labelText: '',
+          labelText: 'ระบุค่าที่ต้องการ',
           hintText: ''
         ),
         style: TextStyle(
@@ -114,19 +97,20 @@ class _ReversePageState extends State<ReversePage> {
     );
   }
 
-  Widget blockforward2(){
+  Widget blockforward(){
     return Container(
       decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       gradient: LinearGradient(
-                          colors: [Colors.white,Colors.white])),
+                          colors: [Colors.lightBlue[300],Colors.lightBlueAccent[100]])),
         child: Container(
           width: 350.0,
           padding: EdgeInsets.all(16.0),
             child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-                rightWhell()
+                blockcenter(),
+                blockcenter2()
               ],
           ),
           ),
@@ -141,7 +125,7 @@ class _ReversePageState extends State<ReversePage> {
             child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              textRight(),blockforward2()
+              textRight(),rightWhell()
               ],
           ),
           ),);
@@ -175,11 +159,11 @@ class _ReversePageState extends State<ReversePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title : Text('Setting Reverse',
+        title : Text('ตั้งค่าถอยหลัง',
          style: TextStyle(
-           fontSize: 25.0,
+           fontSize: 35.0,
            fontWeight:FontWeight.bold,
-           fontFamily: 'Righteous-Regular'
+           fontFamily: 'Muffin-Regular'
       ),
         ),
         actions: <Widget>[buttonchek()],
@@ -191,8 +175,7 @@ class _ReversePageState extends State<ReversePage> {
           child: Center(
             child : Wrap(
               children: <Widget>[
-                blockcenter(),
-                blockcenter2()
+                blockforward()
             ],)
           ),
       ),);

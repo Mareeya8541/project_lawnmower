@@ -7,6 +7,8 @@ import 'package:lawnmower/screen/setting.dart';
 
 
 class Home extends StatefulWidget {
+  final String valueFromSetStart;
+  Home({Key key ,this.valueFromSetStart}):super(key:key);
   @override
   _HomeState createState() => _HomeState();
 }
