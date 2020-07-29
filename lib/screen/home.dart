@@ -184,6 +184,47 @@ class _HomeState extends State<Home> {
     );
   }
 
+  Widget showText() {
+    return Text(
+      'Control Lawnmower',
+      style: TextStyle(
+          fontSize: 30.0, 
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Righteous-Regular', 
+          color: Colors.black),
+    );
+  }
+
+   Widget block(){
+    return Container(
+      decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(0),
+                      gradient: LinearGradient(
+                          colors: [Colors.white,Colors.white])),
+        child: Container(
+          width: 400.0,
+          height: 90,
+          //padding: EdgeInsets.all(16.0),
+            child: Row(
+            //mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+                showText(),buttonSetting()
+              ],
+          ),
+          ),
+            
+    );
+  }
+
+  Widget test(){
+    return Row(
+      //mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        showText(),Text('\t\t\t\t\t\t\t\t\t\t'),buttonSetting()
+      ],
+    );
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -199,12 +240,15 @@ class _HomeState extends State<Home> {
       ),
       body: SafeArea(
         child: Container(
+          alignment: Alignment(10, -5),
           decoration: BoxDecoration(
                       gradient: LinearGradient(
                           colors: [Colors.teal[700],Colors.teal[400],Colors.teal[200],Colors.tealAccent,])),
           child: Center(
             child : Wrap(
-              children: <Widget>[mix(),
+              children: <Widget>[
+                //test(),
+                mix(),
             ],)
           ),
       ),)

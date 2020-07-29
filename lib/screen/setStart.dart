@@ -11,7 +11,7 @@ class SettingStartPage extends StatefulWidget {
 
 class _SettingStartPageState extends State<SettingStartPage> {
   IotModel iotModel;
-  var textEditdelay = new TextEditingController();
+   var textEditdelay = new TextEditingController();
    String delay="";
    FirebaseDatabase firebaseDatabase = FirebaseDatabase.instance;
 
@@ -213,7 +213,6 @@ class _SettingStartPageState extends State<SettingStartPage> {
             //borderRadius: BorderRadius.circular(80.0)
           ),
           onPressed: (){
-           // delay=textEditdelay,;
             var route = MaterialPageRoute(
             builder: (BuildContext context) => Home(
               // valueFromSetStart: textEditdelay.text,
@@ -229,63 +228,6 @@ class _SettingStartPageState extends State<SettingStartPage> {
       ),
     );
   }
-
-  //  Widget bottonchecktest(){
-  //   return Container(
-  //     padding: new EdgeInsets.all(16.0),
-  //     child: SizedBox(
-  //       height: 100,
-  //       width: 250,
-  //       child:  RaisedButton.icon(
-  //         color: Colors.green[200],
-  //         shape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.circular(15.0)
-  //         ),
-  //         onPressed: (){
-  //           setState(() {
-  //             delay=delay;
-  //             if(delay=="0"){
-  //               //fiveminute=1;
-  //              // fivemin="5 Baht \n10 minutes";
-  //               //credit1=iotModel.credit1;
-  //               readData();
-  //               creditint =int.parse(credit1)-5;
-  //               if(creditint<0){
-  //                 creditint=0;
-  //               }
-  //               credit1=(creditint).toString();
-  //               pushbutton=5;
-  //             }
-  //             else {
-  //              fiveminute=0;
-  //              //fivemin="5 Baht \n10 minutes";
-  //               //credit1=iotModel.credit1;
-  //               readData();
-  //               creditint =int.parse(credit1)-5;
-  //               if(creditint<0){
-  //                 creditint=0;
-  //               }
-  //               credit1=(creditint).toString();
-  //               pushbutton=5;
-
-  //             }
-  //             print('$fiveminute');
-  //             editDatabase();
-  //             readData();
-             
-  //           });
-  //         },
-  //         icon: Icon(Icons.money_off),
-  //         label: Text('$fivemin',style: TextStyle(
-  //          fontSize:20.0,
-  //          color:Colors.black,
-  //          fontWeight:FontWeight.bold,
-  //          fontFamily: 'Righteous-Regular'
-  //     ),),
-  //         ),
-  //     ),
-  //   );
-  // }
 
 
   Widget build(BuildContext context) {

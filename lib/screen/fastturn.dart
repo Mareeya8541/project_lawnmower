@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lawnmower/screen/home.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:lawnmower/screen/iot_model.dart';
 
 class FastTurnPage extends StatefulWidget {
   @override
@@ -8,7 +10,46 @@ class FastTurnPage extends StatefulWidget {
 }
 
 class _FastTurnPageState extends State<FastTurnPage> {
+ IotModel iotModel;
+  var textEditleft = new TextEditingController();
+  var textEditright = new TextEditingController();
+  var textEdittime = new TextEditingController();
+  String left="",right="",time="";
+  FirebaseDatabase firebaseDatabase = FirebaseDatabase.instance;
 
+  void initState() {
+    super.initState();
+    readData();
+    
+  }
+
+  Future <void> readData() async {
+    print('Read Data Work');
+    DatabaseReference databaseReference = firebaseDatabase.reference().child('fast');
+    await databaseReference.once().then((DataSnapshot dataSnapshot){
+      print('data=>${dataSnapshot.value.toString()}');//ทุกอย่างใน document ถูกอ่านหมดเลย
+      iotModel=IotModel.formMap(dataSnapshot.value);
+      left=iotModel.left;
+      right=iotModel.right;
+      time=iotModel.time;
+    });
+   
+  }
+
+  Future<void> editDatabase() async{//โยนค่าขึ้น firebase
+    FirebaseDatabase firebaseDatabase= FirebaseDatabase.instance;
+    DatabaseReference databaseReference = firebaseDatabase.reference().child('fast');
+     Map<dynamic,dynamic> map = Map();
+     map['left']=textEditleft.text;
+     map['right']=textEditright.text;
+     map['time']=textEdittime.text;
+   
+     
+     await databaseReference.set(map).then((response){
+       print('Edit Success');
+     });
+  
+  }
 
   Widget textLeft() {
     return Text(
@@ -22,13 +63,15 @@ class _FastTurnPageState extends State<FastTurnPage> {
   } 
 
   Widget leftWhell(){
+    readData();
+    editDatabase();
     return Container(
       width: 300.0,
       child: TextFormField(
         inputFormatters: [WhitelistingTextInputFormatter(RegExp("[0-9]"))],
         maxLines: null,
         keyboardType: TextInputType.number,
-        //controller: textEditEmail,
+        controller: textEditleft,
         decoration: InputDecoration(
           border: OutlineInputBorder(),
           icon: Icon(Icons.local_car_wash,
@@ -73,13 +116,15 @@ Widget blockcenter(){
   } 
 
   Widget rightWhell(){
+    readData();
+    editDatabase();
     return Container(
       width: 300.0,
       child: TextFormField(
         inputFormatters: [WhitelistingTextInputFormatter(RegExp("[0-9]"))],
         maxLines: null,
         keyboardType: TextInputType.number,
-        //controller: textEditEmail,
+        controller: textEditright,
         decoration: InputDecoration(
           border: OutlineInputBorder(),
           icon: Icon(Icons.local_car_wash,
@@ -124,13 +169,15 @@ Widget blockcenter(){
   } 
 
   Widget settingTime(){
+    readData();
+    editDatabase();
     return Container(
       width: 300.0,
       child: TextFormField(
         inputFormatters: [WhitelistingTextInputFormatter(RegExp("[0-9]"))],
         maxLines: null,
         keyboardType: TextInputType.number,
-        //controller: textEditEmail,
+        controller: textEdittime,
         decoration: InputDecoration(
           border: OutlineInputBorder(),
           icon: Icon(Icons.timer,
@@ -186,6 +233,7 @@ Widget blocksettime(){
   }
 
   Widget buttonchek(){
+    readData();
     return Container(
       //padding: new EdgeInsets.all(16.0),
       child: SizedBox(
@@ -201,6 +249,7 @@ Widget blocksettime(){
             builder: (BuildContext context) => Home()
           );
           Navigator.of(context).push(route);
+          editDatabase();
           },
           icon: Icon(Icons.check,size: 20,),
           label: Text(''),
