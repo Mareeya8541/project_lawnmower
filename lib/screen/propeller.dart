@@ -57,8 +57,8 @@ class _PropellerPageState extends State<PropellerPage> {
   }
 
   Widget propeller(){
-    readData();
-    editDatabase();
+    // readData();
+    // editDatabase();
     return Container(
       width: 300.0,
       child: TextFormField(

@@ -66,8 +66,8 @@ class _ReversePageState extends State<ReversePage> {
   } 
 
   Widget leftWhell(){
-    readData();
-    editDatabase();
+    // readData();
+    // editDatabase();
     return Container(
       width: 300.0,
       child: TextFormField(
@@ -119,8 +119,8 @@ class _ReversePageState extends State<ReversePage> {
   } 
 
   Widget rightWhell(){
-    readData();
-    editDatabase();
+    // readData();
+    // editDatabase();
     return Container(
       width: 300.0,
       child: TextFormField(

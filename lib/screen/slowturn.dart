@@ -67,8 +67,8 @@ class _SlowTurnPageState extends State<SlowTurnPage> {
   } 
 
   Widget leftWhell(){
-    readData();
-    editDatabase();
+    // readData();
+    // editDatabase();
     return Container(
       width: 300.0,
       child: TextFormField(
@@ -120,8 +120,8 @@ Widget blockcenter(){
   } 
 
   Widget rightWhell(){
-    readData();
-    editDatabase();
+    // readData();
+    // editDatabase();
     return Container(
       width: 300.0,
       child: TextFormField(
@@ -173,8 +173,8 @@ Widget blockcenter(){
   } 
 
   Widget settingTime(){
-    readData();
-    editDatabase();
+    //readData();
+    //editDatabase();
     return Container(
       width: 300.0,
       child: TextFormField(
@@ -266,7 +266,7 @@ Widget blocksettime(){
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title : Text('ตั้งค่าเลี้ยวแบบช้า',
+        title : Text('ตั้งค่าเลี้ยวซ้าย',
          style: TextStyle(
            fontSize: 35.0,
            fontWeight:FontWeight.bold,

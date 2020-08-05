@@ -64,8 +64,8 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
   } 
 
   Widget leftWhell(){
-    readData();
-    editDatabase();
+    // readData();
+    // editDatabase();
     return Container(
       width: 300.0,
       child: TextFormField(
@@ -117,8 +117,8 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
   } 
 
   Widget rightWhell(){
-    readData();
-    editDatabase();
+    // readData();
+    // editDatabase();
     return Container(
       width: 300.0,
       child: TextFormField(

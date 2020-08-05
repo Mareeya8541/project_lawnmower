@@ -3,6 +3,7 @@ import 'package:lawnmower/screen/fastturn.dart';
 import 'package:lawnmower/screen/forereach.dart';
 import 'package:lawnmower/screen/propeller.dart';
 import 'package:lawnmower/screen/reverse.dart';
+import 'package:lawnmower/screen/sensor.dart';
 import 'package:lawnmower/screen/setStart.dart';
 import 'package:lawnmower/screen/slowturn.dart';
 
@@ -17,7 +18,7 @@ class _SettingPageState extends State<SettingPage> {
     return Container(
       padding: new EdgeInsets.all(16.0),
       child: SizedBox(
-        height: 60,
+        height: 50,
         width: 400,
         child:  RaisedButton.icon(
           color: Colors.purpleAccent,
@@ -47,7 +48,7 @@ class _SettingPageState extends State<SettingPage> {
     return Container(
       padding: new EdgeInsets.all(16.0),
       child: SizedBox(
-        height: 60,
+        height: 50,
         width: 400,
         child:  RaisedButton.icon(
           color: Colors.lightBlue,
@@ -77,7 +78,7 @@ class _SettingPageState extends State<SettingPage> {
     return Container(
       padding: new EdgeInsets.all(16.0),
       child: SizedBox(
-        height: 60,
+        height: 50,
         width: 400,
         child:  RaisedButton.icon(
           color: Colors.blueAccent,
@@ -107,7 +108,7 @@ class _SettingPageState extends State<SettingPage> {
     return Container(
       padding: new EdgeInsets.all(16.0),
       child: SizedBox(
-        height: 60,
+        height: 50,
         width: 400,
         child:  RaisedButton.icon(
           color: Colors.limeAccent[400],
@@ -121,7 +122,7 @@ class _SettingPageState extends State<SettingPage> {
           Navigator.of(context).push(route);
           },
           icon: Icon(Icons.settings),
-          label: Text('เลี้ยวช้า',
+          label: Text('เลี้ยวซ้าย',
           style: TextStyle(
           fontSize:35.0,
            //color:Colors.deepOrange,
@@ -137,7 +138,7 @@ class _SettingPageState extends State<SettingPage> {
     return Container(
       padding: new EdgeInsets.all(16.0),
       child: SizedBox(
-        height: 60,
+        height: 50,
         width: 400,
         child:  RaisedButton.icon(
           color: Colors.yellowAccent,
@@ -151,7 +152,7 @@ class _SettingPageState extends State<SettingPage> {
           Navigator.of(context).push(route);
           },
           icon: Icon(Icons.settings),
-          label: Text('เลี้ยวเร็ว',
+          label: Text('เลี้ยวขวา',
           style: TextStyle(
           fontSize:35.0,
            //color:Colors.deepOrange,
@@ -166,7 +167,7 @@ class _SettingPageState extends State<SettingPage> {
     return Container(
       padding: new EdgeInsets.all(16.0),
       child: SizedBox(
-        height: 60,
+        height: 50,
         width: 400,
         child:  RaisedButton.icon(
           color: Colors.deepOrangeAccent,
@@ -192,6 +193,37 @@ class _SettingPageState extends State<SettingPage> {
     );
   }
 
+  Widget buttonSetSensor(){
+    return Container(
+      padding: new EdgeInsets.all(16.0),
+      child: SizedBox(
+        height: 50,
+        width: 400,
+        child:  RaisedButton.icon(
+          color: Colors.redAccent[400],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(80.0)
+          ),
+          onPressed: (){
+            var route = MaterialPageRoute(
+            builder: (BuildContext context) => Sensor()
+          );
+          Navigator.of(context).push(route);
+          },
+          icon: Icon(Icons.settings),
+          label: Text('ตั้งค่าเซนเซอร์',
+          style: TextStyle(
+          fontSize:35.0,
+           //color:Colors.deepOrange,
+           fontWeight:FontWeight.bold,
+           fontFamily: 'Muffin-Regular'
+      ),),
+          ),
+      ),
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -215,7 +247,7 @@ class _SettingPageState extends State<SettingPage> {
             child : Wrap(
               children: <Widget>[
                   buttonSetStart(),buttonSetMove(),buttonSetReverse(),
-                  buttonSetSlow(),buttonSetFast(),buttonSetPropeller()
+                  buttonSetSlow(),buttonSetFast(),buttonSetPropeller(),buttonSetSensor()
             ],)
           ),
       ),)

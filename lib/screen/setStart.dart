@@ -64,8 +64,8 @@ class _SettingStartPageState extends State<SettingStartPage> {
   }
 
   Widget startDelay(){
-    readData();
-    editDatabase();
+    // readData();
+    // editDatabase();
     return Container(
       width: 300.0,
       child: TextFormField(
@@ -114,78 +114,78 @@ class _SettingStartPageState extends State<SettingStartPage> {
     );
   }
 
-  Widget buttonStart(){
-    return Container(
-      padding: new EdgeInsets.all(16.0),
-      child: SizedBox(
-        height: 80,
-        width: 250,
-        child:  RaisedButton.icon(
-          color: Colors.limeAccent[700],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0)
-          ),
-          onPressed: (){
-          //   var route = MaterialPageRoute(
-          //   builder: (BuildContext context) => SettingStartPage()
-          // );
-          // Navigator.of(context).push(route);
-          },
-          icon: Icon(Icons.power_settings_new,size: 40,),
-          label: Text('Start',
-          style: TextStyle(
-          fontSize:38.0,
-           //color:Colors.deepOrange,
-           fontWeight:FontWeight.bold,
-           fontFamily: 'Muffin-Regular'
-      ),),
-          ),
-      ),
-    );
-  }
+  // Widget buttonStart(){
+  //   return Container(
+  //     padding: new EdgeInsets.all(16.0),
+  //     child: SizedBox(
+  //       height: 80,
+  //       width: 250,
+  //       child:  RaisedButton.icon(
+  //         color: Colors.limeAccent[700],
+  //         shape: RoundedRectangleBorder(
+  //           borderRadius: BorderRadius.circular(30.0)
+  //         ),
+  //         onPressed: (){
+  //         //   var route = MaterialPageRoute(
+  //         //   builder: (BuildContext context) => SettingStartPage()
+  //         // );
+  //         // Navigator.of(context).push(route);
+  //         },
+  //         icon: Icon(Icons.power_settings_new,size: 40,),
+  //         label: Text('Start',
+  //         style: TextStyle(
+  //         fontSize:38.0,
+  //          //color:Colors.deepOrange,
+  //          fontWeight:FontWeight.bold,
+  //          fontFamily: 'Muffin-Regular'
+  //     ),),
+  //         ),
+  //     ),
+  //   );
+  // }
 
-  Widget buttonShut(){
-    return Container(
-      padding: new EdgeInsets.all(16.0),
-      child: SizedBox(
-        height: 80,
-        width: 250,
-        child:  RaisedButton.icon(
-          color: Colors.redAccent[700],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0)
-          ),
-          onPressed: (){
-          //   var route = MaterialPageRoute(
-          //   builder: (BuildContext context) => SettingStartPage()
-          // );
-          // Navigator.of(context).push(route);
-          },
-          icon: Icon(Icons.close,size: 40,),
-          label: Text('Shutdown',
-          style: TextStyle(
-          fontSize:38.0,
-           //color:Colors.deepOrange,
-           fontWeight:FontWeight.bold,
-           fontFamily: 'Muffin-Regular'
-      ),),
-          ),
-      ),
-    );
-  }
+  // Widget buttonShut(){
+  //   return Container(
+  //     padding: new EdgeInsets.all(16.0),
+  //     child: SizedBox(
+  //       height: 80,
+  //       width: 250,
+  //       child:  RaisedButton.icon(
+  //         color: Colors.redAccent[700],
+  //         shape: RoundedRectangleBorder(
+  //           borderRadius: BorderRadius.circular(30.0)
+  //         ),
+  //         onPressed: (){
+  //         //   var route = MaterialPageRoute(
+  //         //   builder: (BuildContext context) => SettingStartPage()
+  //         // );
+  //         // Navigator.of(context).push(route);
+  //         },
+  //         icon: Icon(Icons.close,size: 40,),
+  //         label: Text('Shutdown',
+  //         style: TextStyle(
+  //         fontSize:38.0,
+  //          //color:Colors.deepOrange,
+  //          fontWeight:FontWeight.bold,
+  //          fontFamily: 'Muffin-Regular'
+  //     ),),
+  //         ),
+  //     ),
+  //   );
+  // }
 
-   Widget blockcenter(){
-    return Container(child: Container(
-          width: 350.0,
-          padding: EdgeInsets.all(16.0),
-            child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              buttonStart(),buttonShut()
-              ],
-          ),
-          ),);
-  }
+  //  Widget blockcenter(){
+  //   return Container(child: Container(
+  //         width: 350.0,
+  //         padding: EdgeInsets.all(16.0),
+  //           child: Column(
+  //           mainAxisSize: MainAxisSize.min,
+  //           children: <Widget>[
+  //             //buttonStart(),buttonShut()
+  //             ],
+  //         ),
+  //         ),);
+  // }
 
   Widget blockcenter1(){
     return Container(child: Container(
@@ -251,7 +251,7 @@ class _SettingStartPageState extends State<SettingStartPage> {
               children: <Widget>[
                 blockcenter1(),
                 blockDelay(),
-                blockcenter(),
+                //blockcenter(),
                 //bottonchecktest()
             ],)
           ),

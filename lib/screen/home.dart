@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:lawnmower/screen/iot_model.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:lawnmower/screen/loginpage.dart';
 import 'package:lawnmower/screen/setting.dart';
 
 
@@ -15,9 +16,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   bool buttonstr=false,buttonstop=false;
-  int strButton=0,stopButton=0;
+  int strButton=0,stopButton=0,control=0;
   String str,stop;
-   String user="",pass="";
+  String user="",pass="";
   IotModel iotModel;
 
   FirebaseDatabase firebaseDatabase = FirebaseDatabase.instance;
@@ -44,6 +45,8 @@ class _HomeState extends State<Home> {
       stopButton=iotModel.buttonstop;
       user=iotModel.user;
       pass=iotModel.pass;
+      control=iotModel.control;
+
       
       checkSwitch();
     });
@@ -58,7 +61,8 @@ class _HomeState extends State<Home> {
     map['buttonstr']=strButton;
     map['buttonstop']=stopButton;
     map['user']=user;
-     map['pass']=pass;
+    map['pass']=pass;
+    map['control']=control;
 
     await databaseReference.set(map).then((response){
       print('Edit Success');
@@ -86,90 +90,307 @@ class _HomeState extends State<Home> {
 
   Widget buttonstart(){
     return Container(
-      padding: new EdgeInsets.all(32.0),
+      padding: new EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 100,
-        width: 120,
+        height: 80,
+        width: 100,
         child:  RaisedButton.icon(
           color: Colors.pinkAccent,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(40.0)
+            borderRadius: BorderRadius.circular(30.0)
           ),
           onPressed: (){
             setState(() {
+              readData();
               strButton=strButton;
-              if(strButton==0){
+              if(strButton==1){
                 strButton=1;
-                str="0";
+                //str="ON";
               }
-              else {
-                strButton=0;
-                str="1";
+              else{
+                strButton=1;
+                //str="Off";
               }
               print('$strButton');
               editDatabase();
             });
           },
-          icon: Icon(Icons.ac_unit),
-          label: Text('Start'),
+          icon: Icon(Icons.vpn_key),
+          label: Text(''),
           ),
       ),
     );
   }
 
   Widget buttonStop(){
+    readData();
     return Container(
-      padding: new EdgeInsets.all(32.0),
+      padding: new EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 100,
-        width: 120,
+        height: 80,
+        width: 100,
         child:  RaisedButton.icon(
           color: Colors.blueAccent,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(40.0)
+            borderRadius: BorderRadius.circular(30.0)
           ),
           onPressed: (){
             setState(() {
               stopButton=stopButton;
               if(stopButton==0){
                 stopButton=1;
-                stop="0";
+                stop="ON";
               }
               else {
                 stopButton=0;
-                stop="1";
+                stop="Off";
               }
               print('$stopButton');
               editDatabase();
             });
           },
-          icon: Icon(Icons.ac_unit),
-          label: Text('Stop'),
+          icon: Icon(Icons.stop),
+          label: Text('$stop',style: TextStyle(
+           fontSize: 25.0,
+           fontWeight:FontWeight.bold,
+           fontFamily: 'Muffin-Regular'
+      ),),
+          ),
+      ),
+      
+    );
+  }
+
+  Widget buttonforward(){
+    return Container(
+      //padding: new EdgeInsets.all(0.0),
+      child: SizedBox(
+        height: 120,
+        width: 120,
+        child:  RaisedButton.icon(
+          color: Colors.orange[600],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0)
+          ),
+          onPressed: (){
+            setState(() {
+              readData();
+              control=control;
+              if(control==1){
+                control=1;
+                //str="ON";
+              }
+              else{
+                control=1;
+                //str="Off";
+              }
+              print('$strButton');
+              editDatabase();
+            });
+          },
+          icon: Icon(Icons.arrow_upward,size: 30,color: Colors.white,),
+          label: Text(''),
+          ),
+      ),
+    );
+  }
+  Widget buttonbackward(){
+    return Container(
+      //padding: new EdgeInsets.all(5.0),
+      child: SizedBox(
+        height: 120,
+        width: 120,
+        child:  RaisedButton.icon(
+          color: Colors.orange[600],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0)
+          ),
+          onPressed: (){
+            setState(() {
+              readData();
+              control=control;
+              if(control==2){
+                control=2;
+                //str="ON";
+              }
+              else{
+                control=2;
+                //str="Off";
+              }
+              print('$strButton');
+              editDatabase();
+            });
+          },
+          icon: Icon(Icons.arrow_downward,size: 30,color: Colors.white,),
+          label: Text(''),
           ),
       ),
     );
   }
 
-  Widget mix(){
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        buttonstart(),
-        buttonStop()
-      ],
+  Widget buttonleft(){
+    return Container(
+      //padding: new EdgeInsets.all(5.0),
+      child: SizedBox(
+        height: 120,
+        width: 120,
+        child:  RaisedButton.icon(
+          color: Colors.orange[600],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0)
+          ),
+          onPressed: (){
+            setState(() {
+              readData();
+              control=control;
+              if(control==3){
+                control=3;
+                //str="ON";
+              }
+              else{
+                control=3;
+                //str="Off";
+              }
+              print('$strButton');
+              editDatabase();
+            });
+          },
+          icon: Icon(Icons.arrow_back,size: 30,color: Colors.white,),
+          label: Text(''),
+          ),
+      ),
     );
+  }
+
+  Widget buttonright(){
+    return Container(
+      //padding: new EdgeInsets.all(5.0),
+      child: SizedBox(
+        height: 120,
+        width: 120,
+        child:  RaisedButton.icon(
+          color: Colors.orange[600],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0)
+          ),
+          onPressed: (){
+            setState(() {
+              readData();
+              control=control;
+              if(control==4){
+                control=4;
+                //str="ON";
+              }
+              else{
+                control=4;
+                //str="Off";
+              }
+              print('$strButton');
+              editDatabase();
+            });
+          },
+          icon: Icon(Icons.arrow_forward,size: 25,color: Colors.white,),
+          label: Text(''),
+          ),
+      ),
+    );
+  }
+
+  Widget buttonclose(){
+    return Container(
+      padding: new EdgeInsets.all(10.0),
+      child: SizedBox(
+        height: 100,
+        width: 100,
+        child:  RaisedButton.icon(
+          color: Colors.pinkAccent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0)
+          ),
+          onPressed: (){
+            setState(() {
+              readData();
+              control=control;
+              if(control==0){
+                control=0;
+                //str="ON";
+              }
+              else{
+                control=0;
+                //str="Off";
+              }
+              print('$strButton');
+              editDatabase();
+            });
+          },
+          icon: Icon(Icons.signal_cellular_no_sim),
+          label: Text(''),
+          ),
+      ),
+    );
+  }
+
+  Widget mixstrstop(){
+    return Container(
+      padding: new EdgeInsets.all(30.0),
+      child: Center(
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+              buttonstart(),
+              buttonStop()
+            ],
+        ),
+      ),
+    ); 
+  }
+
+  Widget mixfor(){
+    return Container(
+      child: Center(
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+              buttonforward()
+            ],
+        ),
+      ),
+    ); 
+  }
+  Widget mixback(){
+    return Container(
+      child: Center(
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+              buttonbackward()
+            ],
+        ),
+      ),
+    ); 
+  }
+
+  Widget mixmix(){
+    return Container(
+      child: Center(
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+              buttonleft(),buttonclose(),buttonright()
+            ],
+        ),
+      ),
+    ); 
   }
   
   Widget buttonSetting(){
     return Container(
-      //padding: new EdgeInsets.all(16.0),
       child: SizedBox(
         height: 60,
         width: 60,
         child:  RaisedButton.icon(
           color: Colors.teal[300],
           shape: RoundedRectangleBorder(
-            //borderRadius: BorderRadius.circular(80.0)
           ),
           onPressed: (){
             var route = MaterialPageRoute(
@@ -204,9 +425,7 @@ class _HomeState extends State<Home> {
         child: Container(
           width: 400.0,
           height: 90,
-          //padding: EdgeInsets.all(16.0),
             child: Row(
-            //mainAxisSize: MainAxisSize.min,
             children: <Widget>[
                 showText(),buttonSetting()
               ],
@@ -233,7 +452,7 @@ class _HomeState extends State<Home> {
            fontSize:25.0,
            color:Colors.black,
            fontWeight:FontWeight.bold,
-           fontFamily: 'Righteous-Regular'
+           fontFamily: 'Righteous-Regular'   
       ),
         ),
         actions: <Widget>[buttonSetting()],
@@ -247,8 +466,11 @@ class _HomeState extends State<Home> {
           child: Center(
             child : Wrap(
               children: <Widget>[
-                //test(),
-                mix(),
+                mixstrstop(),
+                mixfor(),
+                mixmix(),
+                mixback()
+                //buttonstart(),buttonStop(),buttonforward(),buttonbackward()
             ],)
           ),
       ),)
