@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:characters/characters.dart';
 
 class Sensor extends StatefulWidget {
   @override

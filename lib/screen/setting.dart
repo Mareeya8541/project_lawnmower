@@ -6,6 +6,7 @@ import 'package:lawnmower/screen/reverse.dart';
 import 'package:lawnmower/screen/sensor.dart';
 import 'package:lawnmower/screen/setStart.dart';
 import 'package:lawnmower/screen/slowturn.dart';
+import 'package:characters/characters.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -247,7 +248,7 @@ class _SettingPageState extends State<SettingPage> {
             child : Wrap(
               children: <Widget>[
                   buttonSetStart(),buttonSetMove(),buttonSetReverse(),
-                  buttonSetSlow(),buttonSetFast(),buttonSetPropeller(),buttonSetSensor()
+                  buttonSetSlow(),buttonSetFast(),buttonSetPropeller(),//buttonSetSensor()
             ],)
           ),
       ),)

@@ -1,10 +1,10 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:lawnmower/screen/iot_model.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:lawnmower/screen/loginpage.dart';
 import 'package:lawnmower/screen/setting.dart';
+import 'package:characters/characters.dart';
 
 
 class Home extends StatefulWidget {
@@ -17,7 +17,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   bool buttonstr=false,buttonstop=false;
   int strButton=0,stopButton=0,control=0;
-  String str,stop;
+  String str,stop="Off";
   String user="",pass="";
   IotModel iotModel;
 
@@ -123,7 +123,7 @@ class _HomeState extends State<Home> {
   }
 
   Widget buttonStop(){
-    readData();
+    //readData();
     return Container(
       padding: new EdgeInsets.all(10.0),
       child: SizedBox(
@@ -323,7 +323,7 @@ class _HomeState extends State<Home> {
               editDatabase();
             });
           },
-          icon: Icon(Icons.signal_cellular_no_sim),
+          icon: Icon(Icons.stop,size: 30,),
           label: Text(''),
           ),
       ),
@@ -382,28 +382,6 @@ class _HomeState extends State<Home> {
       ),
     ); 
   }
-  
-  Widget buttonSetting(){
-    return Container(
-      child: SizedBox(
-        height: 60,
-        width: 60,
-        child:  RaisedButton.icon(
-          color: Colors.teal[300],
-          shape: RoundedRectangleBorder(
-          ),
-          onPressed: (){
-            var route = MaterialPageRoute(
-            builder: (BuildContext context) => SettingPage()
-          );
-          Navigator.of(context).push(route);
-          },
-          icon: Icon(Icons.settings),
-          label: Text(''),
-          ),
-      ),
-    );
-  }
 
   Widget showText() {
     return Text(
@@ -427,7 +405,7 @@ class _HomeState extends State<Home> {
           height: 90,
             child: Row(
             children: <Widget>[
-                showText(),buttonSetting()
+                showText()
               ],
           ),
           ),
@@ -439,7 +417,7 @@ class _HomeState extends State<Home> {
     return Row(
       //mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        showText(),Text('\t\t\t\t\t\t\t\t\t\t'),buttonSetting()
+        showText(),Text('\t\t\t\t\t\t\t\t\t\t')
       ],
     );
   }
@@ -447,6 +425,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(icon: Icon(Icons.person_outline,size: 30,), onPressed: (){
+          var route = MaterialPageRoute(
+            builder: (BuildContext context) => LoginPage()
+          );
+          Navigator.of(context).push(route);
+        }),
         title: Text('Control Lawnmower',
          style: TextStyle(
            fontSize:25.0,
@@ -455,7 +439,14 @@ class _HomeState extends State<Home> {
            fontFamily: 'Righteous-Regular'   
       ),
         ),
-        actions: <Widget>[buttonSetting()],
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.settings,size: 30,), onPressed: (){
+            var route = MaterialPageRoute(
+            builder: (BuildContext context) => SettingPage()
+          );
+          Navigator.of(context).push(route);
+          },)
+        ],
       ),
       body: SafeArea(
         child: Container(
