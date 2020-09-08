@@ -330,9 +330,43 @@ class _HomeState extends State<Home> {
     );
   }
 
+  Widget buttonforwardright1(){
+    return Container(
+      //padding: new EdgeInsets.all(5.0),
+      child: SizedBox(
+        height: 120,
+        width: 120,
+        child:  RaisedButton.icon(
+          color: Colors.redAccent[400],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0)
+          ),
+          onPressed: (){
+            setState(() {
+              readData();
+              control=control;
+              if(control==3){
+                control=3;
+                //str="ON";
+              }
+              else{
+                control=3;
+                //str="Off";
+              }
+              print('$strButton');
+              editDatabase();
+            });
+          },
+          icon: Icon(Icons.subdirectory_arrow_left),
+          label: Text(''),
+          ),
+      ),
+    );
+  }
+
   Widget mixstrstop(){
     return Container(
-      padding: new EdgeInsets.all(30.0),
+      padding: new EdgeInsets.all(15.0),
       child: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -347,11 +381,12 @@ class _HomeState extends State<Home> {
 
   Widget mixfor(){
     return Container(
+      padding: new EdgeInsets.all(10.0),
       child: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-              buttonforward()
+              buttonforwardright1(),Text('\t'),buttonforward(),Text('\t'),buttonforwardright1()
             ],
         ),
       ),
@@ -421,15 +456,51 @@ class _HomeState extends State<Home> {
       ],
     );
   }
+  createAlertDialog(BuildContext context){
+    return showDialog(context: context,builder: (context){
+      return AlertDialog(
+        title: Text('ARE YOUR SURE LOGOUT',
+        style: TextStyle(
+          fontSize: 30.0, 
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Muffin-Regular', 
+          color: Colors.black),),
+        actions:<Widget> [
+          MaterialButton(child: Text('YES',style: TextStyle(
+          fontSize: 25.0, 
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Muffin-Regular', 
+          color: Colors.black),),
+          onPressed: (){
+            var route = MaterialPageRoute(
+            builder: (BuildContext context) => LoginPage()
+          );
+          Navigator.of(context).push(route);
+          },
+          ),
+          MaterialButton(child: Text('NO',style: TextStyle(
+          fontSize: 25.0, 
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Muffin-Regular', 
+          color: Colors.black),),
+          onPressed: (){
+            var route = MaterialPageRoute(
+            builder: (BuildContext context) => Home()
+          );
+          Navigator.of(context).push(route);
+          },
+          )
+        ],
+      );
+    });
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(icon: Icon(Icons.person_outline,size: 30,), onPressed: (){
-          var route = MaterialPageRoute(
-            builder: (BuildContext context) => LoginPage()
-          );
-          Navigator.of(context).push(route);
+        leading: IconButton(icon: Icon(Icons.person_outline,size: 30,), 
+        onPressed: (){
+          createAlertDialog(context);
         }),
         title: Text('Control Lawnmower',
          style: TextStyle(

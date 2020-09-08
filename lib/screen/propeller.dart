@@ -13,7 +13,7 @@ class PropellerPage extends StatefulWidget {
 class _PropellerPageState extends State<PropellerPage> {
  IotModel iotModel;
  var textEditfast = new TextEditingController();
-  String fast1="";
+  String fast="";
   int fast1Int=0;
   FirebaseDatabase firebaseDatabase = FirebaseDatabase.instance;
 
@@ -29,7 +29,7 @@ class _PropellerPageState extends State<PropellerPage> {
     await databaseReference.once().then((DataSnapshot dataSnapshot){
       print('data=>${dataSnapshot.value.toString()}');//ทุกอย่างใน document ถูกอ่านหมดเลย
       iotModel=IotModel.formMap(dataSnapshot.value);
-      fast1Int=iotModel.fast1;
+      fast1Int=iotModel.fast;
       
     });
    
@@ -53,7 +53,7 @@ class _PropellerPageState extends State<PropellerPage> {
     return Text(
       'ความเร็วใบพัด',
       style: TextStyle(
-          fontSize: 35.0, 
+          fontSize: 40.0, 
           fontWeight: FontWeight.bold,
           fontFamily: 'Muffin-Regular', 
           color: Colors.black),
@@ -62,11 +62,11 @@ class _PropellerPageState extends State<PropellerPage> {
 
   Widget showRightwhell(){
     readData();
-    return Text(fast1Int.toString(),
-    style: TextStyle(fontSize:35.0,
+    return Text(fast1Int.toString()+"°",
+    style: TextStyle(fontSize:40.0,
            color:Colors.black,
            fontWeight:FontWeight.bold,
-           fontFamily: 'Muffin-Regular'
+           //fontFamily: 'Muffin-Regular'
            ),);
   }
 
@@ -103,8 +103,8 @@ Widget propeller1(){
     return Container(
       padding: new EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 50,
-        width: 100,
+        height: 70,
+        width: 110,
         child:  RaisedButton.icon(
           color: Colors.tealAccent[700],
           shape: RoundedRectangleBorder(
@@ -141,13 +141,14 @@ Widget propeller1(){
       ),
     );
   }
+
   Widget propeller2(){
     readData();
     return Container(
       padding: new EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 50,
-        width: 100,
+        height: 70,
+        width: 110,
         child:  RaisedButton.icon(
           color: Colors.tealAccent[700],
           shape: RoundedRectangleBorder(
@@ -187,8 +188,8 @@ Widget propeller1(){
     return Container(
       padding: new EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 50,
-        width: 100,
+        height: 70,
+        width: 110,
         child:  RaisedButton.icon(
           color: Colors.tealAccent[700],
           shape: RoundedRectangleBorder(
@@ -228,8 +229,8 @@ Widget propeller1(){
     return Container(
       padding: new EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 50,
-        width: 100,
+        height: 70,
+        width: 110,
         child:  RaisedButton.icon(
           color: Colors.tealAccent[700],
           shape: RoundedRectangleBorder(
@@ -272,7 +273,7 @@ Widget propeller1(){
             child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              showText(),showRightwhell()
+              showText(),Text(''),showRightwhell()
               ],
           ),
           ),);
@@ -326,15 +327,15 @@ Widget propeller1(){
            fontFamily: 'Muffin-Regular'
       ),
         ),
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.check,size: 30,), onPressed: (){
-            var route = MaterialPageRoute(
-            builder: (BuildContext context) => Home()
-          );
-          Navigator.of(context).push(route);
-          editDatabase();
-          },)
-        ],
+        // actions: <Widget>[
+        //   IconButton(icon: Icon(Icons.check,size: 30,), onPressed: (){
+        //     var route = MaterialPageRoute(
+        //     builder: (BuildContext context) => Home()
+        //   );
+        //   Navigator.of(context).push(route);
+        //   editDatabase();
+        //   },)
+        // ],
       ),
       body:  Container(
           decoration: BoxDecoration(

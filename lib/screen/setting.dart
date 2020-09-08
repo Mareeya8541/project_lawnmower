@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:lawnmower/screen/fastturn.dart';
 import 'package:lawnmower/screen/forereach.dart';
+import 'package:lawnmower/screen/loginpage.dart';
 import 'package:lawnmower/screen/propeller.dart';
 import 'package:lawnmower/screen/reverse.dart';
 import 'package:lawnmower/screen/sensor.dart';
 import 'package:lawnmower/screen/setStart.dart';
 import 'package:lawnmower/screen/slowturn.dart';
 import 'package:characters/characters.dart';
+import 'package:intro_slider/intro_slider.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -17,9 +19,9 @@ class _SettingPageState extends State<SettingPage> {
 
   Widget buttonSetStart(){
     return Container(
-      padding: new EdgeInsets.all(16.0),
+      padding: new EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 50,
+        height: 70,
         width: 400,
         child:  RaisedButton.icon(
           color: Colors.purpleAccent,
@@ -47,9 +49,9 @@ class _SettingPageState extends State<SettingPage> {
 
   Widget buttonSetMove(){
     return Container(
-      padding: new EdgeInsets.all(16.0),
+      padding: new EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 50,
+        height: 70,
         width: 400,
         child:  RaisedButton.icon(
           color: Colors.lightBlue,
@@ -77,9 +79,9 @@ class _SettingPageState extends State<SettingPage> {
 
   Widget buttonSetReverse(){
     return Container(
-      padding: new EdgeInsets.all(16.0),
+      padding: new EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 50,
+        height: 70,
         width: 400,
         child:  RaisedButton.icon(
           color: Colors.blueAccent,
@@ -107,9 +109,9 @@ class _SettingPageState extends State<SettingPage> {
 
   Widget buttonSetSlow(){
     return Container(
-      padding: new EdgeInsets.all(16.0),
+      padding: new EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 50,
+        height: 70,
         width: 400,
         child:  RaisedButton.icon(
           color: Colors.limeAccent[400],
@@ -137,9 +139,9 @@ class _SettingPageState extends State<SettingPage> {
 
   Widget buttonSetFast(){
     return Container(
-      padding: new EdgeInsets.all(16.0),
+      padding: new EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 50,
+        height: 70,
         width: 400,
         child:  RaisedButton.icon(
           color: Colors.yellowAccent,
@@ -166,9 +168,9 @@ class _SettingPageState extends State<SettingPage> {
   }
   Widget buttonSetPropeller(){
     return Container(
-      padding: new EdgeInsets.all(16.0),
+      padding: new EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 50,
+        height: 70,
         width: 400,
         child:  RaisedButton.icon(
           color: Colors.deepOrangeAccent,
@@ -223,7 +225,7 @@ class _SettingPageState extends State<SettingPage> {
       ),
     );
   }
-
+  
 
   @override
   Widget build(BuildContext context) {

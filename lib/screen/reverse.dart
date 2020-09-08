@@ -16,8 +16,9 @@ class _ReversePageState extends State<ReversePage> {
   var textEditleft = new TextEditingController();
   var textEditright = new TextEditingController();
   //String left="",right="";
-  String rightpn="0",leftpn="0";
-  int left,right,leftplus,rightplus;
+  // String rightpn="0",leftpn="0";
+  // int left,right,leftplus,rightplus;
+  int speed=1;
   FirebaseDatabase firebaseDatabase = FirebaseDatabase.instance;
 
   void initState() {
@@ -32,8 +33,7 @@ class _ReversePageState extends State<ReversePage> {
     await databaseReference.once().then((DataSnapshot dataSnapshot){
       print('data=>${dataSnapshot.value.toString()}');//ทุกอย่างใน document ถูกอ่านหมดเลย
       iotModel=IotModel.formMap(dataSnapshot.value);
-      leftpn=iotModel.leftpn;
-      rightpn=iotModel.rightpn;
+      speed= iotModel.speed;
       
       // strButton=iotModel.buttonstr;
       // stopButton=iotModel.buttonstop;
@@ -47,8 +47,7 @@ class _ReversePageState extends State<ReversePage> {
      Map<dynamic,dynamic> map = Map();
     //  map['left']=textEditleft.text;
     //  map['right']=textEditright.text;
-     map['left']=leftpn;
-     map['right']=rightpn;
+     map['speed']=speed;
    
      
      await databaseReference.set(map).then((response){
@@ -97,15 +96,6 @@ class _ReversePageState extends State<ReversePage> {
   //     ),
   //   );
   // }
- Widget showleftwhell(){
-    readData();
-    return Text(leftpn.toString(),
-    style: TextStyle(fontSize:35.0,
-           color:Colors.black,
-           fontWeight:FontWeight.bold,
-           fontFamily: 'Muffin-Regular'
-           ),);
-  }
 //   Widget leftWhellplus(){
 //     readData();
 //     return Container(
@@ -233,7 +223,7 @@ class _ReversePageState extends State<ReversePage> {
 
   Widget textRight() {
     return Text(
-      'ตั้งค่าศูนย์ล้อ',
+      'ระดับค่าความเร็ว',
       style: TextStyle(
           fontSize: 35.0, 
           fontWeight: FontWeight.bold,
@@ -241,15 +231,15 @@ class _ReversePageState extends State<ReversePage> {
           color: Colors.black),
     );
   } 
-  Widget showRightwhell(){
-    readData();
-    return Text(rightpn.toString(),
-    style: TextStyle(fontSize:35.0,
-           color:Colors.black,
-           fontWeight:FontWeight.bold,
-           fontFamily: 'Muffin-Regular'
-           ),);
-  }
+  // Widget showRightwhell(){
+  //   readData();
+  //   return Text(rightpn.toString(),
+  //   style: TextStyle(fontSize:35.0,
+  //          color:Colors.black,
+  //          fontWeight:FontWeight.bold,
+  //          fontFamily: 'Muffin-Regular'
+  //          ),);
+  // }
 
 
   // Widget rightWhell(){
@@ -280,142 +270,110 @@ class _ReversePageState extends State<ReversePage> {
   //     ),
   //   );
   // }
-  Widget rightWhellplus(){
+   Widget showleftwhell(){
+    readData();
+    return Text('ความเร็วระดับที่ : ' +speed.toString(),
+    style: TextStyle(fontSize:35.0,
+           color:Colors.black,
+           fontWeight:FontWeight.bold,
+           fontFamily: 'Muffin-Regular'
+           ),);
+  }
+
+  Widget speed1(){
     readData();
     return Container(
-      padding: new EdgeInsets.all(30.0),
+      padding: new EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 50,
-        width: 60,
+        height: 70,
+        width: 200,
         child:  RaisedButton.icon(
           color: Colors.tealAccent[700],
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(40.0)
+            borderRadius: BorderRadius.circular(20.0)
           ),
           onPressed: (){
             setState(() {
-              right=right;
-              left=left;
-              if(right==0){
+              speed=speed;
+              if(speed==0){
                 readData();
-                right =int.parse(rightpn)+1;
-                left = int.parse(leftpn)-1;
-                if(rightplus<0){
-                  right=iotModel.right;
-                  right=0;
-                }
-                else if(left<0){
-                  left=iotModel.left;
-                  left=0;
-                }
-                rightpn=(rightplus).toString();
-                right=iotModel.right;
-                left=iotModel.left;
-                //pushbutton=5;
+                speed=1;
+
+               
               }
               else {
-               right=0;
-                readData();
-                right=int.parse(rightpn)+1;
-                left = int.parse(leftpn)-1;
-                if(right<0){
-                  right=0;
-                }
-                else if(left<0){
-                  left=0;
-                }
-                rightpn=(right).toString();
-                leftpn=(left).toString();
-                //pushbutton=5;
+               speed=1;
+                
 
               }
-              print('$right');
+              print('$speed');
               editDatabase();
               readData();
              
             });
           },
-          icon: Icon(Icons.arrow_back),
-          label: Text(''),
+          icon: Icon(Icons.flash_on),
+          label: Text('ระดับ 1',
+          style: TextStyle(
+          fontSize: 35.0, 
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Muffin-Regular', 
+          color: Colors.black),
+          ),
           ),
       ),
     );
   }
-
-Widget rightWhellnative(){
+  Widget speed2(){
     readData();
     return Container(
-      padding: new EdgeInsets.all(30.0),
+      padding: new EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 50,
-        width: 60,
+        height: 70,
+        width: 200,
         child:  RaisedButton.icon(
           color: Colors.tealAccent[700],
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(40.0)
+            borderRadius: BorderRadius.circular(20.0)
           ),
           onPressed: (){
             setState(() {
-              right=right;
-              left=left;
-              if(right==0){
+              speed=speed;
+              if(speed==0){
                 readData();
-                right =int.parse(rightpn)-1;
-                left = int.parse(leftpn)+1;
-                if(rightplus<0){
-                  right=iotModel.right;
-                  right=0;
-                }
-                else if(left<0){
-                  left=iotModel.left;
-                  left=0;
-                }
-                rightpn=(rightplus).toString();
-                right=iotModel.right;
-                left=iotModel.left;
-                //pushbutton=5;
+                speed=2;
+
+               
               }
               else {
-               right=0;
-                readData();
-                right =int.parse(rightpn)-1;
-                left = int.parse(leftpn)+1;
-                if(right<0){
-                  right=0;
-                }
-                else if(left<0){
-                  left=0;
-                }
-                rightpn=(right).toString();
-                leftpn=(left).toString();
-                //pushbutton=5;
+               speed=2;
+                
 
               }
-              print('$right');
+              print('$speed');
               editDatabase();
               readData();
              
             });
           },
-          icon: Icon(Icons.arrow_forward),
-          label: Text(''),
+          icon: Icon(Icons.flash_on),
+          label: Text('ระดับ 2',
+          style: TextStyle(
+          fontSize: 35.0, 
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Muffin-Regular', 
+          color: Colors.black),
+          ),
           ),
       ),
     );
   }
 
   Widget rightText(){
-    return Row(
+    return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        rightWhellplus(),
-        showleftwhell(),Text(' , ',style: TextStyle(
-           fontSize: 35.0,
-           fontWeight:FontWeight.bold,
-           fontFamily: 'Muffin-Regular'
-      ),),
-        showRightwhell(),
-        rightWhellnative()
+        speed1(),speed2()
       ],
     );
   }
@@ -444,7 +402,7 @@ Widget rightWhellnative(){
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               textRight(),
-                rightText()
+                rightText(),showleftwhell()
               ],
           ),
           ),
