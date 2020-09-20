@@ -168,7 +168,7 @@ class _HomeState extends State<Home> {
         height: 120,
         width: 120,
         child:  RaisedButton.icon(
-          color: Colors.orange[600],
+          color: Colors.cyanAccent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0)
           ),
@@ -188,7 +188,7 @@ class _HomeState extends State<Home> {
               editDatabase();
             });
           },
-          icon: Icon(Icons.arrow_upward,size: 30,color: Colors.white,),
+          icon: Icon(Icons.arrow_upward,size: 30,color: Colors.black,),
           label: Text(''),
           ),
       ),
@@ -201,7 +201,7 @@ class _HomeState extends State<Home> {
         height: 120,
         width: 120,
         child:  RaisedButton.icon(
-          color: Colors.orange[600],
+          color: Colors.cyanAccent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0)
           ),
@@ -221,7 +221,7 @@ class _HomeState extends State<Home> {
               editDatabase();
             });
           },
-          icon: Icon(Icons.arrow_downward,size: 30,color: Colors.white,),
+          icon: Icon(Icons.arrow_downward,size: 30,color: Colors.black,),
           label: Text(''),
           ),
       ),
@@ -235,7 +235,7 @@ class _HomeState extends State<Home> {
         height: 120,
         width: 120,
         child:  RaisedButton.icon(
-          color: Colors.orange[600],
+          color: Colors.cyanAccent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0)
           ),
@@ -255,7 +255,7 @@ class _HomeState extends State<Home> {
               editDatabase();
             });
           },
-          icon: Icon(Icons.arrow_back,size: 30,color: Colors.white,),
+          icon: Icon(Icons.arrow_back,size: 30,color: Colors.black,),
           label: Text(''),
           ),
       ),
@@ -269,7 +269,7 @@ class _HomeState extends State<Home> {
         height: 120,
         width: 120,
         child:  RaisedButton.icon(
-          color: Colors.orange[600],
+          color: Colors.cyanAccent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0)
           ),
@@ -289,7 +289,7 @@ class _HomeState extends State<Home> {
               editDatabase();
             });
           },
-          icon: Icon(Icons.arrow_forward,size: 25,color: Colors.white,),
+          icon: Icon(Icons.arrow_forward,size: 25,color: Colors.black,),
           label: Text(''),
           ),
       ),
@@ -303,7 +303,7 @@ class _HomeState extends State<Home> {
         height: 100,
         width: 100,
         child:  RaisedButton.icon(
-          color: Colors.pinkAccent,
+          color: Colors.lightGreenAccent[400],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0)
           ),
@@ -323,7 +323,7 @@ class _HomeState extends State<Home> {
               editDatabase();
             });
           },
-          icon: Icon(Icons.stop,size: 30,),
+          icon: Icon(Icons.report_off,size: 40,),
           label: Text(''),
           ),
       ),
@@ -386,7 +386,11 @@ class _HomeState extends State<Home> {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-              buttonforwardright1(),Text('\t'),buttonforward(),Text('\t'),buttonforwardright1()
+              //buttonforwardright1(),
+              //Text('\t'),
+              buttonforward(),
+              //Text('\t'),
+              //buttonforwardright1()
             ],
         ),
       ),
@@ -498,7 +502,8 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(icon: Icon(Icons.person_outline,size: 30,), 
+        leading: 
+        IconButton(icon: Icon(Icons.person_outline,size: 30,), 
         onPressed: (){
           createAlertDialog(context);
         }),

@@ -280,7 +280,7 @@ class _SlowTurnPageState extends State<SlowTurnPage> {
         height: 80,
         width: 80,
         child:  RaisedButton.icon(
-          color: Colors.tealAccent[700],
+          color: Colors.lightGreenAccent[400],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0)
           ),
@@ -328,7 +328,7 @@ class _SlowTurnPageState extends State<SlowTurnPage> {
         height: 80,
         width: 80,
         child:  RaisedButton.icon(
-          color: Colors.tealAccent[700],
+          color: Colors.lightGreenAccent[400],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0)
           ),
@@ -481,7 +481,7 @@ Widget pn(){
       decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       gradient: LinearGradient(
-                          colors: [Colors.lightBlue[300],Colors.lightBlueAccent[100]])),
+                          colors: [Colors.cyanAccent,Colors.cyan])),
         child: Container(
           width: 350.0,
           padding: EdgeInsets.all(16.0),

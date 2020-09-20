@@ -202,35 +202,6 @@ class _SettingStartPageState extends State<SettingStartPage> {
   }
 
 
-  Widget buttonchek(){
-    readData();
-    return Container(
-      child: SizedBox(
-        height: 60,
-        width: 60,
-        child:  RaisedButton.icon(
-          color: Colors.teal[300],
-          shape: RoundedRectangleBorder(
-            //borderRadius: BorderRadius.circular(80.0)
-          ),
-          onPressed: (){
-            var route = MaterialPageRoute(
-            builder: (BuildContext context) => Home(
-              // valueFromSetStart: textEditdelay.text,
-            )
-          );
-          Navigator.of(context).push(route);
-          editDatabase();
-          },
-          icon: Icon(Icons.check,size: 20,),
-          label: Text(''),
-          ),
-          
-      ),
-    );
-  }
-
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -241,7 +212,15 @@ class _SettingStartPageState extends State<SettingStartPage> {
            fontFamily: 'Righteous-Regular'
       ),
         ),
-        actions: <Widget>[buttonchek()],
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.check,size: 30,), onPressed: (){
+            var route = MaterialPageRoute(
+            builder: (BuildContext context) => Home()
+          );
+          Navigator.of(context).push(route);
+          editDatabase();
+          },)
+        ],
       ),
       body:  Container(
           decoration: BoxDecoration(

@@ -163,7 +163,7 @@ class _LoginPageState extends State<LoginPage> {
       decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       gradient: LinearGradient(
-                          colors: [Colors.blue[200],Colors.blue[400]])),
+                          colors: [Colors.cyanAccent,Colors.blue[400]])),
         child: Container(
           width: 350.0,
           padding: EdgeInsets.all(16.0),

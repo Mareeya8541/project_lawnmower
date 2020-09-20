@@ -248,7 +248,7 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
         height: 70,
         width: 200,
         child:  RaisedButton.icon(
-          color: Colors.tealAccent[700],
+          color: Colors.lightGreenAccent[400],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0)
           ),
@@ -292,7 +292,7 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
         height: 70,
         width: 200,
         child:  RaisedButton.icon(
-          color: Colors.tealAccent[700],
+          color: Colors.lightGreenAccent[400],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0)
           ),
@@ -356,7 +356,7 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
       decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       gradient: LinearGradient(
-                          colors: [Colors.lightBlue[300],Colors.lightBlueAccent[100]])),
+                          colors: [Colors.cyanAccent,Colors.cyan])),
         child: Container(
           width: 380.0,
           padding: EdgeInsets.all(16.0),

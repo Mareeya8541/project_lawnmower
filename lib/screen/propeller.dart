@@ -106,7 +106,7 @@ Widget propeller1(){
         height: 70,
         width: 110,
         child:  RaisedButton.icon(
-          color: Colors.tealAccent[700],
+          color: Colors.lightGreenAccent[400],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0)
           ),
@@ -150,7 +150,7 @@ Widget propeller1(){
         height: 70,
         width: 110,
         child:  RaisedButton.icon(
-          color: Colors.tealAccent[700],
+          color: Colors.lightGreenAccent[400],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0)
           ),
@@ -191,7 +191,7 @@ Widget propeller1(){
         height: 70,
         width: 110,
         child:  RaisedButton.icon(
-          color: Colors.tealAccent[700],
+          color: Colors.lightGreenAccent[400],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0)
           ),
@@ -232,7 +232,7 @@ Widget propeller1(){
         height: 70,
         width: 110,
         child:  RaisedButton.icon(
-          color: Colors.tealAccent[700],
+          color: Colors.lightGreenAccent[400],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0)
           ),
@@ -258,6 +258,172 @@ Widget propeller1(){
           },
           icon: Icon(Icons.flash_on),
           label: Text('40°',style: TextStyle(
+          fontSize: 20.0, 
+          fontWeight: FontWeight.bold, 
+          ),),
+          ),
+      ),
+    );
+  }
+
+  Widget propeller5(){
+    readData();
+    return Container(
+      padding: new EdgeInsets.all(10.0),
+      child: SizedBox(
+        height: 70,
+        width: 110,
+        child:  RaisedButton.icon(
+          color: Colors.lightGreenAccent[400],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0)
+          ),
+          onPressed: (){
+            setState(() {
+              fast1Int=fast1Int;
+              if(fast1Int==0){
+                readData();
+                fast1Int=60;
+
+               
+              }
+              else {
+               fast1Int=60;
+                
+
+              }
+              print('$fast1Int');
+              editDatabase();
+              //readData();
+             
+            });
+          },
+          icon: Icon(Icons.flash_on),
+          label: Text('60°',style: TextStyle(
+          fontSize: 20.0, 
+          fontWeight: FontWeight.bold, 
+          ),),
+          ),
+      ),
+    );
+  }
+
+  Widget propeller6(){
+    readData();
+    return Container(
+      padding: new EdgeInsets.all(10.0),
+      child: SizedBox(
+        height: 70,
+        width: 110,
+        child:  RaisedButton.icon(
+          color: Colors.lightGreenAccent[400],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0)
+          ),
+          onPressed: (){
+            setState(() {
+              fast1Int=fast1Int;
+              if(fast1Int==0){
+                readData();
+                fast1Int=90;
+
+               
+              }
+              else {
+               fast1Int=90;
+                
+
+              }
+              print('$fast1Int');
+              editDatabase();
+              //readData();
+             
+            });
+          },
+          icon: Icon(Icons.flash_on),
+          label: Text('90°',style: TextStyle(
+          fontSize: 20.0, 
+          fontWeight: FontWeight.bold, 
+          ),),
+          ),
+      ),
+    );
+  }
+  Widget propeller7(){
+    readData();
+    return Container(
+      padding: new EdgeInsets.all(10.0),
+      child: SizedBox(
+        height: 70,
+        width: 110,
+        child:  RaisedButton.icon(
+          color: Colors.lightGreenAccent[400],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0)
+          ),
+          onPressed: (){
+            setState(() {
+              fast1Int=fast1Int;
+              if(fast1Int==0){
+                readData();
+                fast1Int=120;
+
+               
+              }
+              else {
+               fast1Int=120;
+                
+
+              }
+              print('$fast1Int');
+              editDatabase();
+              //readData();
+             
+            });
+          },
+          icon: Icon(Icons.flash_on),
+          label: Text('120°',style: TextStyle(
+          fontSize: 20.0, 
+          fontWeight: FontWeight.bold, 
+          ),),
+          ),
+      ),
+    );
+  }
+  Widget propeller8(){
+    readData();
+    return Container(
+      padding: new EdgeInsets.all(10.0),
+      child: SizedBox(
+        height: 70,
+        width: 110,
+        child:  RaisedButton.icon(
+          color: Colors.lightGreenAccent[400],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0)
+          ),
+          onPressed: (){
+            setState(() {
+              fast1Int=fast1Int;
+              if(fast1Int==0){
+                readData();
+                fast1Int=150;
+
+               
+              }
+              else {
+               fast1Int=150;
+                
+
+              }
+              print('$fast1Int');
+              editDatabase();
+              //readData();
+             
+            });
+          },
+          icon: Icon(Icons.flash_on),
+          label: Text('150°',style: TextStyle(
           fontSize: 20.0, 
           fontWeight: FontWeight.bold, 
           ),),
@@ -296,19 +462,37 @@ Widget propeller1(){
     );
   }
 
+  Widget propeller6090(){
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+      propeller5(),propeller6()
+      ],
+    );
+  }
+
+  Widget propeller1209150(){
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+      propeller7(),propeller8()
+      ],
+    );
+  }
+
   Widget block(){
     return Container(
       decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       gradient: LinearGradient(
-                          colors: [Colors.lightBlue[300],Colors.lightBlueAccent[100]])),
+                          colors: [Colors.cyanAccent,Colors.cyan])),
         child: Container(
           width: 350.0,
           padding: EdgeInsets.all(16.0),
             child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-                propeller1520(),propeller3040()
+                propeller1520(),propeller3040(),propeller6090(),propeller1209150()
               ],
           ),
           ),

@@ -15,7 +15,16 @@ class SettingPage extends StatefulWidget {
   _SettingPageState createState() => _SettingPageState();
 }
 
+
 class _SettingPageState extends State<SettingPage> {
+  PageController _controller = PageController(
+    initialPage: 0,
+  );
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   Widget buttonSetStart(){
     return Container(
@@ -24,7 +33,7 @@ class _SettingPageState extends State<SettingPage> {
         height: 70,
         width: 400,
         child:  RaisedButton.icon(
-          color: Colors.purpleAccent,
+          color: Colors.lightGreenAccent[400],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(80.0)
           ),
@@ -54,7 +63,7 @@ class _SettingPageState extends State<SettingPage> {
         height: 70,
         width: 400,
         child:  RaisedButton.icon(
-          color: Colors.lightBlue,
+          color: Colors.limeAccent[400],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(80.0)
           ),
@@ -84,7 +93,7 @@ class _SettingPageState extends State<SettingPage> {
         height: 70,
         width: 400,
         child:  RaisedButton.icon(
-          color: Colors.blueAccent,
+          color: Colors.lightGreen,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(80.0)
           ),
@@ -114,7 +123,7 @@ class _SettingPageState extends State<SettingPage> {
         height: 70,
         width: 400,
         child:  RaisedButton.icon(
-          color: Colors.limeAccent[400],
+          color: Colors.greenAccent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(80.0)
           ),
@@ -144,7 +153,7 @@ class _SettingPageState extends State<SettingPage> {
         height: 70,
         width: 400,
         child:  RaisedButton.icon(
-          color: Colors.yellowAccent,
+          color: Colors.tealAccent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(80.0)
           ),
@@ -173,7 +182,7 @@ class _SettingPageState extends State<SettingPage> {
         height: 70,
         width: 400,
         child:  RaisedButton.icon(
-          color: Colors.deepOrangeAccent,
+          color: Colors.cyanAccent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(80.0)
           ),
