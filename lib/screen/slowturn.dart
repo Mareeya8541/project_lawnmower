@@ -4,6 +4,7 @@ import 'package:lawnmower/screen/home.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:lawnmower/screen/iot_model.dart';
 import 'package:characters/characters.dart';
+import 'package:lawnmower/screen/setting.dart';
 
 class SlowTurnPage extends StatefulWidget {
   @override
@@ -272,20 +273,63 @@ class _SlowTurnPageState extends State<SlowTurnPage> {
 //   }
 
 
+  // Widget timeplus1(){
+  //   readData();
+  //   return Container(
+  //     padding: new EdgeInsets.all(30.0),
+  //     child: SizedBox(
+  //       height: 80,
+  //       width: 80,
+  //       child:  RaisedButton.icon(
+  //         color: Colors.lightGreenAccent[400],
+  //         shape: RoundedRectangleBorder(
+  //           borderRadius: BorderRadius.circular(10.0)
+  //         ),
+  //         onPressed: (){
+  //           setState(() {
+  //             time=time;
+  //             if(time==0){
+  //               readData();
+  //               time =int.parse(timepn)+100;
+  //               if(timeplus<0){
+  //                 time=iotModel.time;
+  //                 time=0;
+  //               }
+            
+  //               timepn=(timeplus).toString();
+  //               time=iotModel.time;
+
+  //             }
+  //             else {
+  //              time=0;
+  //               readData();
+  //               time=int.parse(timepn)+100;
+  //               if(time<0){
+  //                 time=0;
+  //               }
+  //               timepn=(time).toString();
+  //             }
+  //             print('$time');
+  //             editDatabase();
+  //             readData();
+             
+  //           });
+  //         },
+  //         icon: Icon(Icons.add),
+  //         label: Text(''),
+  //         ),
+  //     ),
+  //   );
+  // }
+
   Widget timeplus1(){
     readData();
-    return Container(
-      padding: new EdgeInsets.all(30.0),
-      child: SizedBox(
-        height: 80,
-        width: 80,
-        child:  RaisedButton.icon(
-          color: Colors.lightGreenAccent[400],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0)
-          ),
-          onPressed: (){
-            setState(() {
+   return Container(
+     height:80,
+      padding: new EdgeInsets.all(5.0),
+     child: RaisedButton(
+       onPressed: (){
+         setState(() {
               time=time;
               if(time==0){
                 readData();
@@ -313,27 +357,36 @@ class _SlowTurnPageState extends State<SlowTurnPage> {
               readData();
              
             });
-          },
-          icon: Icon(Icons.add),
-          label: Text(''),
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(80.0)
           ),
-      ),
-    );
-  }
-  Widget timenative(){
+          child: Container(
+            constraints: BoxConstraints(maxWidth:80.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Icon(Icons.add)
+          ),
+        ),
+     ),
+   );
+ }
+
+ Widget timenative(){
     readData();
-    return Container(
-      padding: new EdgeInsets.all(30.0),
-      child: SizedBox(
-        height: 80,
-        width: 80,
-        child:  RaisedButton.icon(
-          color: Colors.lightGreenAccent[400],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0)
-          ),
-          onPressed: (){
-            setState(() {
+   return Container(
+     height:80,
+      padding: new EdgeInsets.all(5.0),
+     child: RaisedButton(
+       onPressed: (){
+         setState(() {
               time=time;
               if(time==0){
                 readData();
@@ -361,18 +414,33 @@ class _SlowTurnPageState extends State<SlowTurnPage> {
               readData();
              
             });
-          },
-          icon: Icon(Icons.remove),
-          label: Text(''),
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(80.0)
           ),
-      ),
-    );
-  }
+          child: Container(
+            constraints: BoxConstraints(maxWidth:80.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Icon(Icons.remove)
+          ),
+        ),
+     ),
+   );
+ }
+
 Widget pn(){
   return Row(
     mainAxisSize: MainAxisSize.min,
     children: <Widget>[
-      timeplus1(),timenative()
+      timeplus1(),Text('               '),timenative()
     ],
   );
 }
@@ -385,7 +453,7 @@ Widget pn(){
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               textRight(),
-              showRightwhell(),pn()
+              showRightwhell(),Text(''),Text(''),pn()
               ],
           ),
           ),);
@@ -476,24 +544,33 @@ Widget pn(){
 //           ),);
 //   }
 
-   Widget blockforward(){
-    return Container(
-      decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      gradient: LinearGradient(
-                          colors: [Colors.cyanAccent,Colors.cyan])),
-        child: Container(
-          width: 350.0,
-          padding: EdgeInsets.all(16.0),
-            child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-                blockcenter2(),
-                //blocksettime()
-              ],
-          ),
-          ),
+  //  Widget blockforward(){
+  //   return Container(
+  //     decoration: BoxDecoration(
+  //                     borderRadius: BorderRadius.circular(16),
+  //                     gradient: LinearGradient(
+  //                         colors: [Colors.cyanAccent,Colors.cyan])),
+  //       child: Container(
+  //         width: 350.0,
+  //         padding: EdgeInsets.all(16.0),
+  //           child: Column(
+  //           mainAxisSize: MainAxisSize.min,
+  //           children: <Widget>[
+  //               blockcenter2(),
+  //               //blocksettime()
+  //             ],
+  //         ),
+  //         ),
             
+  //   );
+  // }
+
+  Widget  blockforward(){
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        blockcenter2()
+      ],
     );
   }
 
@@ -501,6 +578,14 @@ Widget pn(){
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: 
+        IconButton(icon: Icon(Icons.arrow_back,size: 30,), 
+        onPressed: (){
+         var route = MaterialPageRoute(
+            builder: (BuildContext context) => SettingPage()
+          );
+          Navigator.of(context).push(route);
+        }),
         title : Text('ตั้งค่าเลี้ยวซ้าย',
          style: TextStyle(
            fontSize: 35.0,
@@ -521,7 +606,7 @@ Widget pn(){
       body:  Container(
           decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [Colors.teal[700],Colors.teal[400],Colors.teal[200],Colors.tealAccent,])),
+                          colors: [Colors.white,Colors.white,])),
           child: Center(
             child : Wrap(
               children: <Widget>[

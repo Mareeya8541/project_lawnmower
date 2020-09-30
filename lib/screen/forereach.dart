@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:lawnmower/screen/home.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:lawnmower/screen/iot_model.dart';
+import 'package:lawnmower/screen/setting.dart';
 //import 'package:characters/characters.dart';
 
 class MoveForwardPage extends StatefulWidget {
@@ -242,18 +243,12 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
 
   Widget speed1(){
     readData();
-    return Container(
-      padding: new EdgeInsets.all(10.0),
-      child: SizedBox(
-        height: 70,
-        width: 200,
-        child:  RaisedButton.icon(
-          color: Colors.lightGreenAccent[400],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0)
-          ),
-          onPressed: (){
-            setState(() {
+   return Container(
+     height: 90,
+      padding: new EdgeInsets.all(5.0),
+     child: RaisedButton(
+       onPressed: (){
+         setState(() {
               speed=speed;
               if(speed==0){
                 readData();
@@ -271,33 +266,46 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
               readData();
              
             });
-          },
-          icon: Icon(Icons.flash_on),
-          label: Text('ระดับ 1',
-          style: TextStyle(
-          fontSize: 35.0, 
-          fontWeight: FontWeight.bold,
-          fontFamily: 'Muffin-Regular', 
-          color: Colors.black),
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.blueAccent,Colors.cyan],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(10.0)
           ),
+          child: Container(
+            constraints: BoxConstraints(maxWidth: 200.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Text(
+              "ระดับ 1",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+              color: Colors.black,
+              fontSize:38.0,
+              fontWeight:FontWeight.bold,
+              fontFamily: 'Muffin-Regular'
           ),
-      ),
-    );
-  }
-  Widget speed2(){
+            )
+          ),
+        ),
+     ),
+   );
+ }
+
+  
+ Widget speed2(){
     readData();
-    return Container(
-      padding: new EdgeInsets.all(10.0),
-      child: SizedBox(
-        height: 70,
-        width: 200,
-        child:  RaisedButton.icon(
-          color: Colors.lightGreenAccent[400],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0)
-          ),
-          onPressed: (){
-            setState(() {
+   return Container(
+     height: 90,
+      padding: new EdgeInsets.all(5.0),
+     child: RaisedButton(
+       onPressed: (){
+         setState(() {
               speed=speed;
               if(speed==0){
                 readData();
@@ -315,19 +323,74 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
               readData();
              
             });
-          },
-          icon: Icon(Icons.flash_on),
-          label: Text('ระดับ 2',
-          style: TextStyle(
-          fontSize: 35.0, 
-          fontWeight: FontWeight.bold,
-          fontFamily: 'Muffin-Regular', 
-          color: Colors.black),
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.blueAccent,Colors.cyan],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(10.0)
           ),
+          child: Container(
+            constraints: BoxConstraints(maxWidth: 200.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Text(
+              "ระดับ 2",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+              color: Colors.black,
+              fontSize:38.0,
+              fontWeight:FontWeight.bold,
+              fontFamily: 'Muffin-Regular'
           ),
-      ),
-    );
-  }
+            )
+          ),
+        ),
+     ),
+   );
+ }
+
+ Widget textspeed(){
+    readData();
+   return Container(
+     height:80,
+      padding: new EdgeInsets.all(5.0),
+     child: RaisedButton(
+      //  onPressed: (){
+      //    },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(50.0)
+          ),
+          child: Container(
+            constraints: BoxConstraints(maxWidth:400.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Text(
+              "ความเร็วระดับที่  : "+speed.toString(),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+              color: Colors.black,
+              fontSize:38.0,
+              fontWeight:FontWeight.bold,
+              fontFamily: 'Muffin-Regular'
+          ),
+            )
+          ),
+        ),
+     ),
+   );
+ }
 
   Widget rightText(){
     return Column(
@@ -340,37 +403,62 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
   Widget blockcenter2(){
     return Container(child: Container(
           width: 400.0,
-          padding: EdgeInsets.all(0.0),
+          padding: EdgeInsets.all(10.0),
             child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              rightText(),showleftwhell()
+              textspeed(),
+              Text(''),
+              Text(''),
+              rightText(),
               ],
           ),
           ),);
   }
 
 
-  Widget blockforward1(){
-    return Container(
-      decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      gradient: LinearGradient(
-                          colors: [Colors.cyanAccent,Colors.cyan])),
-        child: Container(
-          width: 380.0,
-          padding: EdgeInsets.all(16.0),
+  // Widget blockforward1(){
+  //   return Container(
+  //     decoration: BoxDecoration(
+  //                     borderRadius: BorderRadius.circular(16),
+  //                     gradient: LinearGradient(
+  //                         colors: [Colors.cyanAccent,Colors.cyan])),
+  //       child: Container(
+  //         width: 380.0,
+  //         padding: EdgeInsets.all(16.0),
+  //           child: Column(
+  //           mainAxisSize: MainAxisSize.min,
+  //           children: <Widget>[
+  //             textRight(),
+  //               blockcenter2()
+  //             ],
+  //         ),
+  //         ),
+            
+  //   );
+  // }
+Widget blockforward1(){
+    return Container(child: Container(
+          width: 400.0,
+          padding: EdgeInsets.all(5.0),
             child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              textRight(),
-                blockcenter2()
+              blockcenter2()
               ],
           ),
-          ),
-            
-    );
+          ),);
   }
+  // Widget blockforward1(){
+  //   return Column(
+  //     mainAxisSize: MainAxisSize.min,
+     
+  //     children: <Widget>[
+  //        textRight(),
+  //        blockcenter2()
+  //     ],
+  //   );
+  // }
  Widget rigtleftRow(){
     return Row(
       mainAxisSize: MainAxisSize.min,
@@ -385,6 +473,14 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: 
+        IconButton(icon: Icon(Icons.arrow_back,size: 30,), 
+        onPressed: (){
+         var route = MaterialPageRoute(
+            builder: (BuildContext context) => SettingPage()
+          );
+          Navigator.of(context).push(route);
+        }),
         title : Text('ตั้งค่าเดินหน้า',
          style: TextStyle(
            fontSize: 35.0,
@@ -405,7 +501,7 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
       body:  Container(
           decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [Colors.teal[700],Colors.teal[400],Colors.teal[200],Colors.tealAccent,])),
+                          colors: [Colors.white,Colors.white])),
           child: Center(
             child : Wrap(
               children: <Widget>[

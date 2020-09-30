@@ -4,6 +4,7 @@ import 'package:lawnmower/screen/home.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:lawnmower/screen/iot_model.dart';
 import 'package:characters/characters.dart';
+import 'package:lawnmower/screen/setting.dart';
 
 class SettingStartPage extends StatefulWidget {
   @override
@@ -53,6 +54,16 @@ class _SettingStartPageState extends State<SettingStartPage> {
   
   }
 
+  Widget showdelay(){
+    readData();
+    return Text('TIME  :  '+delay.toString()+' ms',
+    style: TextStyle(fontSize:35.0,
+           color:Colors.black,
+           fontWeight:FontWeight.bold,
+           fontFamily: 'Muffin-Regular'
+           ),);
+  }
+
   Widget showText() {
     return Text(
       'ตั้งเวลาสตาร์ท',
@@ -68,7 +79,8 @@ class _SettingStartPageState extends State<SettingStartPage> {
     // readData();
     // editDatabase();
     return Container(
-      width: 300.0,
+      width: 350.0,
+      height: 80.0,
       child: TextFormField(
         inputFormatters: [WhitelistingTextInputFormatter(RegExp("[0-9]"))],
         maxLines: null,
@@ -95,6 +107,86 @@ class _SettingStartPageState extends State<SettingStartPage> {
     );
   }
 
+  Widget confirm(){
+    readData();
+    return Container(
+     height: 90,
+      padding: new EdgeInsets.all(5.0),
+     child: RaisedButton(
+       onPressed: (){
+         createAlertDialog(context);
+          
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(50.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.blueAccent,Colors.cyan],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(30.0)
+          ),
+          child: Container(
+            constraints: BoxConstraints(maxWidth: 200.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Text(
+              "ยืนยัน",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+              color: Colors.black,
+              fontSize:30.0,
+              fontWeight:FontWeight.bold,
+              fontFamily: 'Muffin-Regular'
+          ),
+            )
+          ),
+        ),
+     ),
+   );
+  }
+
+  createAlertDialog(BuildContext context){
+    return showDialog(context: context,builder: (context){
+      return AlertDialog(
+        title: Text('    ต้องการตั้งค่านี้ใช่หรือไม่ ?      (ARE YOUR SURE ? )    ',
+        style: TextStyle(
+          fontSize: 30.0, 
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Muffin-Regular', 
+          color: Colors.red),),
+        actions:<Widget> [
+          MaterialButton(child: Text('YES/ใช่',style: TextStyle(
+          fontSize: 25.0, 
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Muffin-Regular', 
+          color: Colors.black),),
+          onPressed: (){
+            var route = MaterialPageRoute(
+            builder: (BuildContext context) => Home()
+          );
+          Navigator.of(context).push(route);
+          editDatabase();
+          },
+          ),
+          MaterialButton(child: Text('NO/ไม่ใช่',style: TextStyle(
+          fontSize: 25.0, 
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Muffin-Regular', 
+          color: Colors.black),),
+          onPressed: (){
+            var route = MaterialPageRoute(
+            builder: (BuildContext context) => SettingStartPage()
+          );
+          Navigator.of(context).push(route);
+          },
+          )
+        ],
+      );
+    });
+  }
+
   Widget blockDelay(){
     return Container(
       decoration: BoxDecoration(
@@ -115,66 +207,6 @@ class _SettingStartPageState extends State<SettingStartPage> {
     );
   }
 
-  // Widget buttonStart(){
-  //   return Container(
-  //     padding: new EdgeInsets.all(16.0),
-  //     child: SizedBox(
-  //       height: 80,
-  //       width: 250,
-  //       child:  RaisedButton.icon(
-  //         color: Colors.limeAccent[700],
-  //         shape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.circular(30.0)
-  //         ),
-  //         onPressed: (){
-  //         //   var route = MaterialPageRoute(
-  //         //   builder: (BuildContext context) => SettingStartPage()
-  //         // );
-  //         // Navigator.of(context).push(route);
-  //         },
-  //         icon: Icon(Icons.power_settings_new,size: 40,),
-  //         label: Text('Start',
-  //         style: TextStyle(
-  //         fontSize:38.0,
-  //          //color:Colors.deepOrange,
-  //          fontWeight:FontWeight.bold,
-  //          fontFamily: 'Muffin-Regular'
-  //     ),),
-  //         ),
-  //     ),
-  //   );
-  // }
-
-  // Widget buttonShut(){
-  //   return Container(
-  //     padding: new EdgeInsets.all(16.0),
-  //     child: SizedBox(
-  //       height: 80,
-  //       width: 250,
-  //       child:  RaisedButton.icon(
-  //         color: Colors.redAccent[700],
-  //         shape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.circular(30.0)
-  //         ),
-  //         onPressed: (){
-  //         //   var route = MaterialPageRoute(
-  //         //   builder: (BuildContext context) => SettingStartPage()
-  //         // );
-  //         // Navigator.of(context).push(route);
-  //         },
-  //         icon: Icon(Icons.close,size: 40,),
-  //         label: Text('Shutdown',
-  //         style: TextStyle(
-  //         fontSize:38.0,
-  //          //color:Colors.deepOrange,
-  //          fontWeight:FontWeight.bold,
-  //          fontFamily: 'Muffin-Regular'
-  //     ),),
-  //         ),
-  //     ),
-  //   );
-  // }
-
   //  Widget blockcenter(){
   //   return Container(child: Container(
   //         width: 350.0,
@@ -188,10 +220,23 @@ class _SettingStartPageState extends State<SettingStartPage> {
   //         ),);
   // }
 
+  Widget blockcenter(){
+    return Container(child: Container(
+          width: 350.0,
+          padding: EdgeInsets.all(50.0),
+            child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              showdelay(),
+              ],
+          ),
+          ),);
+  }
+
   Widget blockcenter1(){
     return Container(child: Container(
           width: 350.0,
-          padding: EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(0.0),
             child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
@@ -201,10 +246,31 @@ class _SettingStartPageState extends State<SettingStartPage> {
           ),);
   }
 
+  Widget blockconfirm(){
+    return Container(child: Container(
+          width: 350.0,
+          padding: EdgeInsets.all(0.0),
+            child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              confirm()
+              ],
+          ),
+          ),);
+  }
+
 
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: 
+        IconButton(icon: Icon(Icons.arrow_back,size: 30,), 
+        onPressed: (){
+         var route = MaterialPageRoute(
+            builder: (BuildContext context) => SettingPage()
+          );
+          Navigator.of(context).push(route);
+        }),
         title : Text('Setting Start',
          style: TextStyle(
            fontSize: 25.0,
@@ -212,25 +278,26 @@ class _SettingStartPageState extends State<SettingStartPage> {
            fontFamily: 'Righteous-Regular'
       ),
         ),
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.check,size: 30,), onPressed: (){
-            var route = MaterialPageRoute(
-            builder: (BuildContext context) => Home()
-          );
-          Navigator.of(context).push(route);
-          editDatabase();
-          },)
-        ],
+        // actions: <Widget>[
+        //   IconButton(icon: Icon(Icons.check,size: 30,), onPressed: (){
+        //     var route = MaterialPageRoute(
+        //     builder: (BuildContext context) => Home()
+        //   );
+        //   Navigator.of(context).push(route);
+        //   editDatabase();
+        //   },)
+        // ],
       ),
       body:  Container(
           decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [Colors.teal[700],Colors.teal[400],Colors.teal[200],Colors.tealAccent,])),
+                          colors: [Colors.white,Colors.white,])),
           child: Center(
             child : Wrap(
               children: <Widget>[
                 blockcenter1(),
                 blockDelay(),
+                blockconfirm()
                 //blockcenter(),
                 //bottonchecktest()
             ],)

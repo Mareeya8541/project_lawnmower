@@ -88,19 +88,13 @@ class _HomeState extends State<Home> {
     print('Start=$buttonstr,Stop=$buttonstop');
   }
 
-  Widget buttonstart(){
-    return Container(
+Widget buttonstart(){
+   return Container(
+     height:100,
       padding: new EdgeInsets.all(10.0),
-      child: SizedBox(
-        height: 80,
-        width: 100,
-        child:  RaisedButton.icon(
-          color: Colors.pinkAccent,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0)
-          ),
-          onPressed: (){
-            setState(() {
+     child: RaisedButton(
+       onPressed: (){
+         setState(() {
               readData();
               strButton=strButton;
               if(strButton==1){
@@ -114,28 +108,35 @@ class _HomeState extends State<Home> {
               print('$strButton');
               editDatabase();
             });
-          },
-          icon: Icon(Icons.vpn_key),
-          label: Text(''),
-          ),
-      ),
-    );
-  }
-
-  Widget buttonStop(){
-    //readData();
-    return Container(
-      padding: new EdgeInsets.all(10.0),
-      child: SizedBox(
-        height: 80,
-        width: 100,
-        child:  RaisedButton.icon(
-          color: Colors.blueAccent,
-          shape: RoundedRectangleBorder(
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.redAccent,Colors.yellowAccent],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
             borderRadius: BorderRadius.circular(30.0)
           ),
-          onPressed: (){
-            setState(() {
+          child: Container(
+            constraints: BoxConstraints(maxWidth:100.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Icon(Icons.vpn_key,size: 30,)
+          ),
+        ),
+     ),
+   );
+ }
+
+ Widget buttonStop(){
+   return Container(
+     height: 100,
+      padding: new EdgeInsets.all(10.0),
+     child: RaisedButton(
+       onPressed: (){
+         setState(() {
               stopButton=stopButton;
               if(stopButton==0){
                 stopButton=1;
@@ -148,32 +149,44 @@ class _HomeState extends State<Home> {
               print('$stopButton');
               editDatabase();
             });
-          },
-          icon: Icon(Icons.stop),
-          label: Text('$stop',style: TextStyle(
-           fontSize: 25.0,
-           fontWeight:FontWeight.bold,
-           fontFamily: 'Muffin-Regular'
-      ),),
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.blueAccent,Colors.cyan],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(30.0)
           ),
-      ),
-      
-    );
-  }
+          child: Container(
+            constraints: BoxConstraints(maxWidth: 100.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Text(
+              "$stop",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+              color: Colors.black,
+              fontSize:35.0,
+              fontWeight:FontWeight.bold,
+              fontFamily: 'Muffin-Regular'
+          ),
+            )
+          ),
+        ),
+     ),
+   );
+ }
 
-  Widget buttonforward(){
-    return Container(
-      //padding: new EdgeInsets.all(0.0),
-      child: SizedBox(
-        height: 120,
-        width: 120,
-        child:  RaisedButton.icon(
-          color: Colors.cyanAccent,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0)
-          ),
-          onPressed: (){
-            setState(() {
+ Widget buttonforward(){
+   return Container(
+     height:130,
+      padding: new EdgeInsets.all(0.0),
+     child: RaisedButton(
+       onPressed: (){
+          setState(() {
               readData();
               control=control;
               if(control==1){
@@ -187,26 +200,35 @@ class _HomeState extends State<Home> {
               print('$strButton');
               editDatabase();
             });
-          },
-          icon: Icon(Icons.arrow_upward,size: 30,color: Colors.black,),
-          label: Text(''),
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(40.0)
           ),
-      ),
-    );
-  }
-  Widget buttonbackward(){
-    return Container(
-      //padding: new EdgeInsets.all(5.0),
-      child: SizedBox(
-        height: 120,
-        width: 120,
-        child:  RaisedButton.icon(
-          color: Colors.cyanAccent,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0)
+          child: Container(
+            constraints: BoxConstraints(maxWidth:120.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Icon(Icons.arrow_upward,size: 40,color: Colors.black,)
           ),
-          onPressed: (){
-            setState(() {
+        ),
+     ),
+   );
+ }
+
+Widget buttonbackward(){
+   return Container(
+     height:130,
+      padding: new EdgeInsets.all(0.0),
+     child: RaisedButton(
+       onPressed: (){
+          setState(() {
               readData();
               control=control;
               if(control==2){
@@ -220,27 +242,35 @@ class _HomeState extends State<Home> {
               print('$strButton');
               editDatabase();
             });
-          },
-          icon: Icon(Icons.arrow_downward,size: 30,color: Colors.black,),
-          label: Text(''),
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(40.0)
           ),
-      ),
-    );
-  }
-
-  Widget buttonleft(){
-    return Container(
-      //padding: new EdgeInsets.all(5.0),
-      child: SizedBox(
-        height: 120,
-        width: 120,
-        child:  RaisedButton.icon(
-          color: Colors.cyanAccent,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0)
+          child: Container(
+            constraints: BoxConstraints(maxWidth:120.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Icon(Icons.arrow_downward,size: 40,color: Colors.black,)
           ),
-          onPressed: (){
-            setState(() {
+        ),
+     ),
+   );
+ }
+  
+Widget buttonleft(){
+   return Container(
+     height:130,
+      padding: new EdgeInsets.all(0.0),
+     child: RaisedButton(
+       onPressed: (){
+          setState(() {
               readData();
               control=control;
               if(control==3){
@@ -254,27 +284,35 @@ class _HomeState extends State<Home> {
               print('$strButton');
               editDatabase();
             });
-          },
-          icon: Icon(Icons.arrow_back,size: 30,color: Colors.black,),
-          label: Text(''),
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(40.0)
           ),
-      ),
-    );
-  }
+          child: Container(
+            constraints: BoxConstraints(maxWidth:120.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Icon(Icons.arrow_back,size: 40,color: Colors.black,)
+          ),
+        ),
+     ),
+   );
+ }
 
-  Widget buttonright(){
-    return Container(
-      //padding: new EdgeInsets.all(5.0),
-      child: SizedBox(
-        height: 120,
-        width: 120,
-        child:  RaisedButton.icon(
-          color: Colors.cyanAccent,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0)
-          ),
-          onPressed: (){
-            setState(() {
+ Widget buttonright(){
+   return Container(
+     height:130,
+      padding: new EdgeInsets.all(0.0),
+     child: RaisedButton(
+       onPressed: (){
+          setState(() {
               readData();
               control=control;
               if(control==4){
@@ -288,27 +326,35 @@ class _HomeState extends State<Home> {
               print('$strButton');
               editDatabase();
             });
-          },
-          icon: Icon(Icons.arrow_forward,size: 25,color: Colors.black,),
-          label: Text(''),
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(40.0)
           ),
-      ),
-    );
-  }
+          child: Container(
+            constraints: BoxConstraints(maxWidth:120.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Icon(Icons.arrow_forward,size: 40,color: Colors.black,)
+          ),
+        ),
+     ),
+   );
+ }
 
-  Widget buttonclose(){
-    return Container(
+Widget buttonclose(){
+   return Container(
+     height:130,
       padding: new EdgeInsets.all(10.0),
-      child: SizedBox(
-        height: 100,
-        width: 100,
-        child:  RaisedButton.icon(
-          color: Colors.lightGreenAccent[400],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0)
-          ),
-          onPressed: (){
-            setState(() {
+     child: RaisedButton(
+       onPressed: (){
+          setState(() {
               readData();
               control=control;
               if(control==0){
@@ -322,13 +368,61 @@ class _HomeState extends State<Home> {
               print('$strButton');
               editDatabase();
             });
-          },
-          icon: Icon(Icons.report_off,size: 40,),
-          label: Text(''),
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.redAccent,Colors.orangeAccent],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(60.0)
           ),
-      ),
-    );
-  }
+          child: Container(
+            constraints: BoxConstraints(maxWidth:100.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Icon(Icons.report_off,size: 40,color: Colors.black,)
+          ),
+        ),
+     ),
+   );
+ }
+  
+  // Widget buttonclose(){
+  //   return Container(
+  //     padding: new EdgeInsets.all(10.0),
+  //     child: SizedBox(
+  //       height: 100,
+  //       width: 100,
+  //       child:  RaisedButton.icon(
+  //         color: Colors.lightGreenAccent[400],
+  //         shape: RoundedRectangleBorder(
+  //           borderRadius: BorderRadius.circular(20.0)
+  //         ),
+  //         onPressed: (){
+  //           setState(() {
+  //             readData();
+  //             control=control;
+  //             if(control==0){
+  //               control=0;
+  //               //str="ON";
+  //             }
+  //             else{
+  //               control=0;
+  //               //str="Off";
+  //             }
+  //             print('$strButton');
+  //             editDatabase();
+  //           });
+  //         },
+  //         icon: Icon(Icons.report_off,size: 40,),
+  //         label: Text(''),
+  //         ),
+  //     ),
+  //   );
+  // }
 
   Widget buttonforwardright1(){
     return Container(
@@ -381,7 +475,7 @@ class _HomeState extends State<Home> {
 
   Widget mixfor(){
     return Container(
-      padding: new EdgeInsets.all(10.0),
+      padding: new EdgeInsets.all(0.0),
       child: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -398,6 +492,7 @@ class _HomeState extends State<Home> {
   }
   Widget mixback(){
     return Container(
+      padding: new EdgeInsets.all(0.0),
       child: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -411,6 +506,7 @@ class _HomeState extends State<Home> {
 
   Widget mixmix(){
     return Container(
+      padding: new EdgeInsets.all(0.0),
       child: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -463,14 +559,14 @@ class _HomeState extends State<Home> {
   createAlertDialog(BuildContext context){
     return showDialog(context: context,builder: (context){
       return AlertDialog(
-        title: Text('ARE YOUR SURE LOGOUT',
+        title: Text('ต้องการออกจากหน้านี้ใช่หรือไม่ ? (>ARE YOUR SURE LOGOUT ?)',
         style: TextStyle(
           fontSize: 30.0, 
           fontWeight: FontWeight.bold,
           fontFamily: 'Muffin-Regular', 
-          color: Colors.black),),
+          color: Colors.red),),
         actions:<Widget> [
-          MaterialButton(child: Text('YES',style: TextStyle(
+          MaterialButton(child: Text('YES/ใช่',style: TextStyle(
           fontSize: 25.0, 
           fontWeight: FontWeight.bold,
           fontFamily: 'Muffin-Regular', 
@@ -482,7 +578,7 @@ class _HomeState extends State<Home> {
           Navigator.of(context).push(route);
           },
           ),
-          MaterialButton(child: Text('NO',style: TextStyle(
+          MaterialButton(child: Text('NO/ไม่ใช่',style: TextStyle(
           fontSize: 25.0, 
           fontWeight: FontWeight.bold,
           fontFamily: 'Muffin-Regular', 
@@ -529,7 +625,7 @@ class _HomeState extends State<Home> {
           alignment: Alignment(10, -5),
           decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [Colors.teal[700],Colors.teal[400],Colors.teal[200],Colors.tealAccent,])),
+                          colors: [Colors.white,Colors.white,])),
           child: Center(
             child : Wrap(
               children: <Widget>[

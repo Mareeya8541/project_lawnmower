@@ -129,52 +129,107 @@ class _LoginPageState extends State<LoginPage> {
   return hex.encode(digest.bytes);
  }
 
-   Widget buttonlogin(){
-     readData();
-    return Container(
-      width: 300.0,
-      height: 50.0,
-      child: RaisedButton.icon(
-        color: Colors.blue[900],
-        icon: Icon(Icons.people,
-        size: 30.0,
-      ),
-      label: Text('LOGIN'
-        ,style: TextStyle(
-           fontSize:20.0,
-           color:Colors.black,
-           fontWeight:FontWeight.bold,
-           fontFamily: 'Righteous-Regular'
-      ),
-      ),
-      onPressed: (){if(generateMd5(textEditPass.text)==pass&&textEditEmail
-      .text==user){
-        var route = MaterialPageRoute(
+ Widget buttonlogin(){
+   readData();
+   return Container(
+     height: 70.0,
+     child: RaisedButton(
+       onPressed: (){
+         if(generateMd5(textEditPass.text)==pass&&textEditEmail
+         .text==user){
+            var route = MaterialPageRoute(
             builder: (BuildContext context) => Home()
           );
           Navigator.of(context).push(route);
       }editDatabase();},
-    ),
-    );
-  }
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(80.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.blueAccent,Colors.cyan],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(30.0)
+          ),
+          child: Container(
+            constraints: BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Text(
+              "LOGIN",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+              color: Colors.white,
+              fontSize:20.0,
+              fontWeight:FontWeight.bold,
+              fontFamily: 'Righteous-Regular'
+          ),
+            )
+          ),
+        ),
+     ),
+   );
+ }
 
-  Widget blocklogin(){
-    return Container(
-      decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      gradient: LinearGradient(
-                          colors: [Colors.cyanAccent,Colors.blue[400]])),
-        child: Container(
-          width: 350.0,
-          padding: EdgeInsets.all(16.0),
-            child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              showText(),emailText(),passText(),Text('\t'),buttonlogin(),
-              ],
-          ),
-          ),
+  //  Widget buttonlogin(){
+  //    readData();
+  //   return Container(
+  //     width: 300.0,
+  //     height: 50.0,
+  //     child: RaisedButton.icon(
+  //       color: Colors.blueAccent[700],
+  //       icon: Icon(Icons.people,
+  //       size: 30.0,
+  //       color: Colors.black,
+  //     ),
+  //     label: Text('LOGIN'
+  //       ,style: TextStyle(
+  //          fontSize:20.0,
+  //          color:Colors.black,
+  //          fontWeight:FontWeight.bold,
+  //          fontFamily: 'Righteous-Regular'
+  //     ),
+  //     ),
+  //     onPressed: (){if(generateMd5(textEditPass.text)==pass&&textEditEmail
+  //     .text==user){
+  //       var route = MaterialPageRoute(
+  //           builder: (BuildContext context) => Home()
+  //         );
+  //         Navigator.of(context).push(route);
+  //     }
+  //     editDatabase();
+  //     },
+  //   ),
+  //   );
+  // }
+
+
+  // Widget blocklogin(){
+  //   return Container(
+  //     decoration: BoxDecoration(
+  //                     borderRadius: BorderRadius.circular(16),
+  //                     gradient: LinearGradient(
+  //                         colors: [Colors.white,Colors.white])),
+  //       child: Container(
+  //         width: 350.0,
+  //         padding: EdgeInsets.all(16.0),
+  //           child: Column(
+  //           mainAxisSize: MainAxisSize.min,
+  //           children: <Widget>[
+  //             showText(),emailText(),passText(),Text('\t'),buttonlogin(),
+  //             ],
+  //         ),
+  //         ),
             
+  //   );
+  // }
+  Widget blocklogin(){
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        showText(),emailText(),passText(),Text('\t'),buttonlogin(),
+      ],
     );
   }
   
@@ -195,22 +250,12 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title : Text('LOGIN USER',
-      //    style: TextStyle(
-      //      fontSize: 30.0,
-      //      fontWeight:FontWeight.bold,
-      //      fontFamily: 'Righteous-Regular'
-      // ),
-      //   )
-      // ),
       body:  Container(
           decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [Colors.teal[700],Colors.teal[400],Colors.teal[200],Colors.tealAccent,])),
+                          colors: [Colors.cyanAccent,Colors.white,])),
           child: Center(
             child : Wrap(
-             
               children: <Widget>[logologin()
             ],)
           ),

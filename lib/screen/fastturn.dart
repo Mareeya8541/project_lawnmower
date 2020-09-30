@@ -4,6 +4,7 @@ import 'package:lawnmower/screen/home.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:lawnmower/screen/iot_model.dart';
 import 'package:characters/characters.dart';
+import 'package:lawnmower/screen/setting.dart';
 
 class FastTurnPage extends StatefulWidget {
   @override
@@ -80,18 +81,12 @@ class _FastTurnPageState extends State<FastTurnPage> {
   }
   Widget timeplus1(){
     readData();
-    return Container(
-      padding: new EdgeInsets.all(30.0),
-      child: SizedBox(
-        height: 80,
-        width: 80,
-        child:  RaisedButton.icon(
-          color: Colors.lightGreenAccent[400],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0)
-          ),
-          onPressed: (){
-            setState(() {
+   return Container(
+     height:80,
+      padding: new EdgeInsets.all(5.0),
+     child: RaisedButton(
+       onPressed: (){
+         setState(() {
               time=time;
               if(time==0){
                 readData();
@@ -119,27 +114,36 @@ class _FastTurnPageState extends State<FastTurnPage> {
               readData();
              
             });
-          },
-          icon: Icon(Icons.add),
-          label: Text(''),
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(80.0)
           ),
-      ),
-    );
-  }
-  Widget timenative(){
+          child: Container(
+            constraints: BoxConstraints(maxWidth:80.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Icon(Icons.add)
+          ),
+        ),
+     ),
+   );
+ }
+
+ Widget timenative(){
     readData();
-    return Container(
-      padding: new EdgeInsets.all(30.0),
-      child: SizedBox(
-        height: 80,
-        width: 80,
-        child:  RaisedButton.icon(
-          color: Colors.lightGreenAccent[400],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0)
-          ),
-          onPressed: (){
-            setState(() {
+   return Container(
+     height:80,
+      padding: new EdgeInsets.all(5.0),
+     child: RaisedButton(
+       onPressed: (){
+         setState(() {
               time=time;
               if(time==0){
                 readData();
@@ -167,14 +171,36 @@ class _FastTurnPageState extends State<FastTurnPage> {
               readData();
              
             });
-          },
-          icon: Icon(Icons.remove),
-          label: Text(''),
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(80.0)
           ),
-      ),
-    );
-  }
+          child: Container(
+            constraints: BoxConstraints(maxWidth:80.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Icon(Icons.remove)
+          ),
+        ),
+     ),
+   );
+ }
 
+Widget pn(){
+  return Row(
+    mainAxisSize: MainAxisSize.min,
+    children: <Widget>[
+      timeplus1(),Text('               '),timenative()
+    ],
+  );
+}
 
   Widget blockcenter2(){
     return Container(child: Container(
@@ -184,12 +210,11 @@ class _FastTurnPageState extends State<FastTurnPage> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               textRight(),
-              showRightwhell(),pn()
+              showRightwhell(),Text(''),Text(''),pn()
               ],
           ),
           ),);
   }
-
   // Widget textTime() {
   //   return Text(
   //     'เวลา',
@@ -242,14 +267,7 @@ class _FastTurnPageState extends State<FastTurnPage> {
 //           ),
 //           ),);
 //   }
-Widget pn(){
-  return Row(
-    mainAxisSize: MainAxisSize.min,
-    children: <Widget>[
-      timeplus1(),timenative()
-    ],
-  );
-}
+
 Widget rigtleftRow(){
     return Row(
       mainAxisSize: MainAxisSize.min,
@@ -258,68 +276,28 @@ Widget rigtleftRow(){
       ],
     );
   }
-  // Widget blockforward(){
-  //   return Container(
-  //     decoration: BoxDecoration(
-  //                     borderRadius: BorderRadius.circular(16),
-  //                     gradient: LinearGradient(
-  //                         colors: [Colors.lightBlue[300],Colors.lightBlueAccent[100]])),
-  //       child: Container(
-  //         width: 180.0,
-  //         padding: EdgeInsets.all(16.0),
-  //           child: Column(
-  //           mainAxisSize: MainAxisSize.min,
-  //           children: <Widget>[
-  //              // blockcenter()
-  //             ],
-  //         ),
-  //         ),
-            
-  //   );
-  // }
-   Widget blockforward1(){
-    return Container(
-      decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      gradient: LinearGradient(
-                          colors: [Colors.cyanAccent,Colors.cyan])),
-        child: Container(
-          width: 380.0,
-          padding: EdgeInsets.all(16.0),
-            child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-                blockcenter2(),//blocksettime() 
-              ],
-          ),
-          ),
-            
+  
+  Widget blockforward1(){
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        blockcenter2()
+      ],
     );
   }
-  // Widget blockforward2(){
-  //   return Container(
-  //     decoration: BoxDecoration(
-  //                     borderRadius: BorderRadius.circular(16),
-  //                     gradient: LinearGradient(
-  //                         colors: [Colors.lightBlue[300],Colors.lightBlueAccent[100]])),
-  //       child: Container(
-  //         width: 350.0,
-  //         //padding: EdgeInsets.all(16.0),
-  //           child: Column(
-  //           mainAxisSize: MainAxisSize.min,
-  //           children: <Widget>[
-  //               blocksettime()
-  //             ],
-  //         ),
-  //         ),
-            
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: 
+        IconButton(icon: Icon(Icons.arrow_back,size: 30,), 
+        onPressed: (){
+         var route = MaterialPageRoute(
+            builder: (BuildContext context) => SettingPage()
+          );
+          Navigator.of(context).push(route);
+        }),
         title : Text('ตั้งค่าเลี้ยวขวา',
          style: TextStyle(
            fontSize: 35.0,
@@ -340,7 +318,7 @@ Widget rigtleftRow(){
       body:  Container(
           decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [Colors.teal[700],Colors.teal[400],Colors.teal[200],Colors.tealAccent,])),
+                          colors: [Colors.white,Colors.white,])),
           child: Center(
             child : Wrap(
               children: <Widget>[
