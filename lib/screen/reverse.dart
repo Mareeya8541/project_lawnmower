@@ -312,7 +312,7 @@ class _ReversePageState extends State<ReversePage> {
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.blueAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.lightBlue[600],Colors.cyanAccent],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -369,7 +369,7 @@ class _ReversePageState extends State<ReversePage> {
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.blueAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.lightBlue[600],Colors.cyanAccent],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -407,7 +407,7 @@ class _ReversePageState extends State<ReversePage> {
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),

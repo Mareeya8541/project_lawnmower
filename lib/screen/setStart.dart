@@ -118,15 +118,15 @@ class _SettingStartPageState extends State<SettingStartPage> {
           
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(50.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.blueAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.cyan],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
-            borderRadius: BorderRadius.circular(30.0)
+            borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
             constraints: BoxConstraints(maxWidth: 200.0, minHeight: 50.0),

@@ -363,7 +363,7 @@ class _SlowTurnPageState extends State<SlowTurnPage> {
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -420,7 +420,7 @@ class _SlowTurnPageState extends State<SlowTurnPage> {
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),

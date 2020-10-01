@@ -1,10 +1,8 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:lawnmower/screen/iot_model.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:lawnmower/screen/loginpage.dart';
 import 'package:lawnmower/screen/setting.dart';
-import 'package:characters/characters.dart';
 
 
 class Home extends StatefulWidget {
@@ -114,7 +112,7 @@ Widget buttonstart(){
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.redAccent,Colors.yellowAccent],
+            gradient:LinearGradient(colors: [Colors.blueAccent,Colors.cyanAccent],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -155,7 +153,7 @@ Widget buttonstart(){
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.blueAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.blueAccent,Colors.cyanAccent],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -206,9 +204,9 @@ Widget buttonstart(){
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
+            gradient:LinearGradient(colors: [Colors.cyan,Colors.white],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomLeft,
             ),
             borderRadius: BorderRadius.circular(40.0)
           ),
@@ -248,9 +246,9 @@ Widget buttonbackward(){
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
+            gradient:LinearGradient(colors: [Colors.cyan,Colors.white],
+            begin: Alignment.bottomLeft,
+            end: Alignment.topLeft,
             ),
             borderRadius: BorderRadius.circular(40.0)
           ),
@@ -290,7 +288,7 @@ Widget buttonleft(){
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
+            gradient:LinearGradient(colors: [Colors.cyan,Colors.white],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -332,7 +330,7 @@ Widget buttonleft(){
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.cyan,Colors.lime],
+            gradient:LinearGradient(colors: [Colors.white,Colors.cyan],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -374,9 +372,9 @@ Widget buttonclose(){
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.redAccent,Colors.orangeAccent],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
+            gradient:LinearGradient(colors: [Colors.cyan[200],Colors.cyan[200]],
+            begin: Alignment.bottomCenter,
+            end: Alignment.bottomCenter,
             ),
             borderRadius: BorderRadius.circular(60.0)
           ),

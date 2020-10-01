@@ -102,7 +102,7 @@ class _PropellerPageState extends State<PropellerPage> {
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.limeAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -158,7 +158,7 @@ class _PropellerPageState extends State<PropellerPage> {
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.limeAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -213,7 +213,7 @@ class _PropellerPageState extends State<PropellerPage> {
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.limeAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -268,7 +268,7 @@ class _PropellerPageState extends State<PropellerPage> {
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.limeAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -324,7 +324,7 @@ class _PropellerPageState extends State<PropellerPage> {
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.limeAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -380,7 +380,7 @@ class _PropellerPageState extends State<PropellerPage> {
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.limeAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -435,7 +435,7 @@ class _PropellerPageState extends State<PropellerPage> {
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.limeAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -490,7 +490,7 @@ class _PropellerPageState extends State<PropellerPage> {
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.limeAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -546,7 +546,7 @@ class _PropellerPageState extends State<PropellerPage> {
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.limeAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),

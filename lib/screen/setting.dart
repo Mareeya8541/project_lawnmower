@@ -39,7 +39,7 @@ Widget buttonSetStart(){
         padding: EdgeInsets.all(10.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.cyan,Colors.blueAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.lightBlue,Colors.cyanAccent],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -80,7 +80,7 @@ Widget buttonSetMove(){
         padding: EdgeInsets.all(10.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.cyan,Colors.blueAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.lightBlue,Colors.cyanAccent],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -121,7 +121,7 @@ Widget buttonSetReverse(){
         padding: EdgeInsets.all(10.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.cyan,Colors.blueAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.lightBlue,Colors.cyanAccent],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -162,7 +162,7 @@ Widget buttonSetReverse(){
         padding: EdgeInsets.all(10.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.cyan,Colors.blueAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.lightBlue,Colors.cyanAccent],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -202,7 +202,7 @@ Widget buttonSetReverse(){
         padding: EdgeInsets.all(10.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.cyan,Colors.blueAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.lightBlue,Colors.cyanAccent],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -242,7 +242,7 @@ Widget buttonSetPropeller(){
         padding: EdgeInsets.all(10.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.cyan,Colors.blueAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.lightBlue,Colors.cyanAccent],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -361,7 +361,7 @@ Widget buttonSetPropeller(){
           );
           Navigator.of(context).push(route);
         }),
-        title: Text('Setting',
+        title: Text('More Settings',
          style: TextStyle(
            fontSize:25.0,
            color:Colors.black,
@@ -379,7 +379,8 @@ Widget buttonSetPropeller(){
           child: Center(
             child : Wrap(
               children: <Widget>[
-                 blockcontrol1(),blockcontrol2(),blockcontrol3(),blockcontrol4(),blockcontrol5(),blockcontrol6()
+                 blockcontrol1(),blockcontrol2(),blockcontrol3(),
+                 blockcontrol4(),blockcontrol5(),blockcontrol6()
             ],)
           ),
       ),)

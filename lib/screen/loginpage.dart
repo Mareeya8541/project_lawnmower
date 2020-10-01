@@ -147,7 +147,7 @@ class _LoginPageState extends State<LoginPage> {
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.blueAccent,Colors.cyan],
+            gradient:LinearGradient(colors: [Colors.blueAccent,Colors.cyanAccent],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
@@ -160,7 +160,7 @@ class _LoginPageState extends State<LoginPage> {
               "LOGIN",
               textAlign: TextAlign.center,
               style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize:20.0,
               fontWeight:FontWeight.bold,
               fontFamily: 'Righteous-Regular'
