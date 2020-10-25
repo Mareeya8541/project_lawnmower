@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:lawnmower/screen/fastturn.dart';
 import 'package:lawnmower/screen/forereach.dart';
 import 'package:lawnmower/screen/home.dart';
+import 'package:lawnmower/screen/iot_model.dart';
 import 'package:lawnmower/screen/propeller.dart';
 import 'package:lawnmower/screen/reverse.dart';
 import 'package:lawnmower/screen/setStart.dart';
 import 'package:lawnmower/screen/slowturn.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -14,28 +16,21 @@ class SettingPage extends StatefulWidget {
 
 
 class _SettingPageState extends State<SettingPage> {
-  PageController _controller = PageController(
-    initialPage: 0,
-  );
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
 
 Widget buttonSetStart(){
+ 
    return Container(
      height: 90,
       padding: new EdgeInsets.all(5.0),
      child: RaisedButton(
-       onPressed: (){
+       onPressed: (){ 
          var route = MaterialPageRoute(
             builder: (BuildContext context) => SettingStartPage()
           );
           Navigator.of(context).push(route);
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(10.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -76,7 +71,7 @@ Widget buttonSetMove(){
           Navigator.of(context).push(route);
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(10.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -117,7 +112,7 @@ Widget buttonSetReverse(){
           Navigator.of(context).push(route);
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(10.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -158,7 +153,7 @@ Widget buttonSetReverse(){
           Navigator.of(context).push(route);
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(10.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -198,7 +193,7 @@ Widget buttonSetReverse(){
           Navigator.of(context).push(route);
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(10.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -238,7 +233,7 @@ Widget buttonSetPropeller(){
           Navigator.of(context).push(route);
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(10.0),
         child: Ink(
           decoration: BoxDecoration(

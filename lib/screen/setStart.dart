@@ -297,8 +297,8 @@ class _SettingStartPageState extends State<SettingStartPage> {
               children: <Widget>[
                 blockcenter1(),
                 blockDelay(),
-                blockconfirm()
-                //blockcenter(),
+                blockconfirm(),
+               // blockcenter(),
                 //bottonchecktest()
             ],)
           ),

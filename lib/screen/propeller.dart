@@ -82,6 +82,62 @@ class _PropellerPageState extends State<PropellerPage> {
               fast1Int=fast1Int;
               if(fast1Int==0){
                 readData();
+                fast1Int=10;
+
+               
+              }
+              else {
+               fast1Int=10;
+                
+
+              }
+              print('$fast1Int');
+              editDatabase();
+              readData();
+             
+            });
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(40.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(40.0)
+          ),
+          child: Container(
+            constraints: BoxConstraints(maxWidth: 100.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Text(
+              "10°",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+              color: Colors.black,
+              fontSize:20.0,
+              fontWeight:FontWeight.bold,
+              
+          ),
+            )
+          ),
+        ),
+     ),
+   );
+ }
+
+  Widget propeller2(){
+    readData();
+   return Container(
+     height: 90,
+      padding: new EdgeInsets.all(5.0),
+     child: RaisedButton(
+       onPressed: (){
+         setState(() {
+              fast1Int=fast1Int;
+              if(fast1Int==0){
+                readData();
                 fast1Int=15;
 
                
@@ -98,7 +154,7 @@ class _PropellerPageState extends State<PropellerPage> {
             });
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -106,7 +162,7 @@ class _PropellerPageState extends State<PropellerPage> {
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
-            borderRadius: BorderRadius.circular(30.0)
+            borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
             constraints: BoxConstraints(maxWidth: 100.0, minHeight: 50.0),
@@ -126,8 +182,62 @@ class _PropellerPageState extends State<PropellerPage> {
      ),
    );
  }
+  Widget propeller3(){
+    readData();
+   return Container(
+     height: 90,
+      padding: new EdgeInsets.all(5.0),
+     child: RaisedButton(
+       onPressed: (){
+         setState(() {
+              fast1Int=fast1Int;
+              if(fast1Int==0){
+                readData();
+                fast1Int=20;
 
-  Widget propeller2(){
+               
+              }
+              else {
+               fast1Int=20;
+                
+
+              }
+              print('$fast1Int');
+              editDatabase();
+              readData();
+             
+            });
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(40.0)),
+        padding: EdgeInsets.all(5.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(40.0)
+          ),
+          child: Container(
+            constraints: BoxConstraints(maxWidth: 100.0, minHeight: 50.0),
+            alignment:Alignment.center,
+            child: Text(
+              "20°",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+              color: Colors.black,
+              fontSize:20.0,
+              fontWeight:FontWeight.bold,
+              
+          ),
+            )
+          ),
+        ),
+     ),
+   );
+ }
+  Widget propeller4(){
     readData();
    return Container(
      height: 90,
@@ -154,7 +264,7 @@ class _PropellerPageState extends State<PropellerPage> {
             });
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -162,7 +272,7 @@ class _PropellerPageState extends State<PropellerPage> {
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
-            borderRadius: BorderRadius.circular(30.0)
+            borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
             constraints: BoxConstraints(maxWidth: 100.0, minHeight: 50.0),
@@ -182,62 +292,8 @@ class _PropellerPageState extends State<PropellerPage> {
      ),
    );
  }
-  Widget propeller3(){
-    readData();
-   return Container(
-     height: 90,
-      padding: new EdgeInsets.all(5.0),
-     child: RaisedButton(
-       onPressed: (){
-         setState(() {
-              fast1Int=fast1Int;
-              if(fast1Int==0){
-                readData();
-                fast1Int=45;
 
-               
-              }
-              else {
-               fast1Int=45;
-                
-
-              }
-              print('$fast1Int');
-              editDatabase();
-              readData();
-             
-            });
-         },
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
-        padding: EdgeInsets.all(5.0),
-        child: Ink(
-          decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            ),
-            borderRadius: BorderRadius.circular(30.0)
-          ),
-          child: Container(
-            constraints: BoxConstraints(maxWidth: 100.0, minHeight: 50.0),
-            alignment:Alignment.center,
-            child: Text(
-              "45°",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-              color: Colors.black,
-              fontSize:20.0,
-              fontWeight:FontWeight.bold,
-              
-          ),
-            )
-          ),
-        ),
-     ),
-   );
- }
-  Widget propeller4(){
+  Widget propeller5(){
     readData();
    return Container(
      height: 90,
@@ -264,7 +320,7 @@ class _PropellerPageState extends State<PropellerPage> {
             });
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -272,7 +328,7 @@ class _PropellerPageState extends State<PropellerPage> {
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
-            borderRadius: BorderRadius.circular(30.0)
+            borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
             constraints: BoxConstraints(maxWidth: 100.0, minHeight: 50.0),
@@ -293,7 +349,7 @@ class _PropellerPageState extends State<PropellerPage> {
    );
  }
 
-  Widget propeller5(){
+  Widget propeller6(){
     readData();
    return Container(
      height: 90,
@@ -320,7 +376,7 @@ class _PropellerPageState extends State<PropellerPage> {
             });
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -328,7 +384,7 @@ class _PropellerPageState extends State<PropellerPage> {
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
-            borderRadius: BorderRadius.circular(30.0)
+            borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
             constraints: BoxConstraints(maxWidth: 100.0, minHeight: 50.0),
@@ -348,8 +404,7 @@ class _PropellerPageState extends State<PropellerPage> {
      ),
    );
  }
-
-  Widget propeller6(){
+  Widget propeller7(){
     readData();
    return Container(
      height: 90,
@@ -376,7 +431,7 @@ class _PropellerPageState extends State<PropellerPage> {
             });
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -384,68 +439,13 @@ class _PropellerPageState extends State<PropellerPage> {
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
-            borderRadius: BorderRadius.circular(30.0)
+            borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
             constraints: BoxConstraints(maxWidth: 100.0, minHeight: 50.0),
             alignment:Alignment.center,
             child: Text(
               "120°",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-              color: Colors.black,
-              fontSize:20.0,
-              fontWeight:FontWeight.bold,
-              
-          ),
-            )
-          ),
-        ),
-     ),
-   );
- }
-  Widget propeller7(){
-    readData();
-   return Container(
-     height: 90,
-      padding: new EdgeInsets.all(5.0),
-     child: RaisedButton(
-       onPressed: (){
-         setState(() {
-              fast1Int=fast1Int;
-              if(fast1Int==0){
-                readData();
-                fast1Int=140;
-
-               
-              }
-              else {
-               fast1Int=140;
-                
-
-              }
-              print('$fast1Int');
-              editDatabase();
-              readData();
-             
-            });
-         },
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
-        padding: EdgeInsets.all(5.0),
-        child: Ink(
-          decoration: BoxDecoration(
-            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.white],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            ),
-            borderRadius: BorderRadius.circular(30.0)
-          ),
-          child: Container(
-            constraints: BoxConstraints(maxWidth: 100.0, minHeight: 50.0),
-            alignment:Alignment.center,
-            child: Text(
-              "140°",
               textAlign: TextAlign.center,
               style: TextStyle(
               color: Colors.black,
@@ -470,12 +470,12 @@ class _PropellerPageState extends State<PropellerPage> {
               fast1Int=fast1Int;
               if(fast1Int==0){
                 readData();
-                fast1Int=160;
+                fast1Int=150;
 
                
               }
               else {
-               fast1Int=160;
+               fast1Int=150;
                 
 
               }
@@ -486,7 +486,7 @@ class _PropellerPageState extends State<PropellerPage> {
             });
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -494,13 +494,13 @@ class _PropellerPageState extends State<PropellerPage> {
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
-            borderRadius: BorderRadius.circular(30.0)
+            borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
             constraints: BoxConstraints(maxWidth: 100.0, minHeight: 50.0),
             alignment:Alignment.center,
             child: Text(
-              "160°",
+              "150°",
               textAlign: TextAlign.center,
               style: TextStyle(
               color: Colors.black,
@@ -542,7 +542,7 @@ class _PropellerPageState extends State<PropellerPage> {
             });
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -550,7 +550,7 @@ class _PropellerPageState extends State<PropellerPage> {
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
-            borderRadius: BorderRadius.circular(30.0)
+            borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
             constraints: BoxConstraints(maxWidth: 100.0, minHeight: 50.0),

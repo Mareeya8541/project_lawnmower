@@ -13,9 +13,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  bool buttonstr=false,buttonstop=false;
-  int strButton=0,stopButton=0,control=0;
-  String str,stop="Off";
+  bool buttonstr=false,buttonstop=false,security=false;
+  int strButton=0,stopButton=0,control=0,securitybutton=0;
+  String str,stop="Off",security1="off";
   String user="",pass="";
   IotModel iotModel;
 
@@ -41,6 +41,7 @@ class _HomeState extends State<Home> {
       iotModel=IotModel.formMap(dataSnapshot.value);
       strButton=iotModel.buttonstr;
       stopButton=iotModel.buttonstop;
+      securitybutton=iotModel.security;
       user=iotModel.user;
       pass=iotModel.pass;
       control=iotModel.control;
@@ -58,6 +59,7 @@ class _HomeState extends State<Home> {
     Map<dynamic,dynamic> map = Map();
     map['buttonstr']=strButton;
     map['buttonstop']=stopButton;
+    map['security']=securitybutton;
     map['user']=user;
     map['pass']=pass;
     map['control']=control;
@@ -108,7 +110,7 @@ Widget buttonstart(){
             });
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -116,7 +118,7 @@ Widget buttonstart(){
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
-            borderRadius: BorderRadius.circular(30.0)
+            borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
             constraints: BoxConstraints(maxWidth:100.0, minHeight: 50.0),
@@ -149,7 +151,7 @@ Widget buttonstart(){
             });
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -157,7 +159,7 @@ Widget buttonstart(){
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             ),
-            borderRadius: BorderRadius.circular(30.0)
+            borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
             constraints: BoxConstraints(maxWidth: 100.0, minHeight: 50.0),
@@ -200,7 +202,7 @@ Widget buttonstart(){
             });
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -242,7 +244,7 @@ Widget buttonbackward(){
             });
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -284,7 +286,7 @@ Widget buttonleft(){
             });
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -326,7 +328,7 @@ Widget buttonleft(){
             });
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -368,7 +370,7 @@ Widget buttonclose(){
             });
          },
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+        borderRadius: BorderRadius.circular(60.0)),
         padding: EdgeInsets.all(5.0),
         child: Ink(
           decoration: BoxDecoration(
@@ -456,9 +458,60 @@ Widget buttonclose(){
     );
   }
 
+  Widget securityBut(){
+   return Container(
+     height: 70,
+      padding: new EdgeInsets.all(0.0),
+     child: RaisedButton(
+       onPressed: (){
+         setState(() {
+              securitybutton=securitybutton;
+              if(securitybutton==0){
+                securitybutton=1;
+                security1="ON";
+              }
+              else {
+                securitybutton=0;
+                security1="Off";
+              }
+              print('$securitybutton');
+              editDatabase();
+            });
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(40.0)),
+        padding: EdgeInsets.all(5.0),
+        
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.blueAccent],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(30.0)
+          ),
+          child: Container(
+            constraints: BoxConstraints(maxWidth:380.0, minHeight: 10.0),
+            alignment:Alignment.center,
+            child: Text(
+              "security  :  $security1",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+              color: Colors.black,
+              fontSize:35.0,
+              fontWeight:FontWeight.bold,
+              fontFamily: 'Muffin-Regular'
+          ),
+            )
+          ),
+        ),
+     ),
+   );
+ }
+
   Widget mixstrstop(){
     return Container(
-      padding: new EdgeInsets.all(15.0),
+      padding: new EdgeInsets.all(0.0),
       child: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -510,6 +563,19 @@ Widget buttonclose(){
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
               buttonleft(),buttonclose(),buttonright()
+            ],
+        ),
+      ),
+    ); 
+  }
+  Widget mixsecurity(){
+    return Container(
+      padding: new EdgeInsets.all(0.0),
+      child: Center(
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+              securityBut()
             ],
         ),
       ),
@@ -627,6 +693,7 @@ Widget buttonclose(){
           child: Center(
             child : Wrap(
               children: <Widget>[
+                mixsecurity(),
                 mixstrstop(),
                 mixfor(),
                 mixmix(),
