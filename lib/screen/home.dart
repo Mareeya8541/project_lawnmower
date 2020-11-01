@@ -17,6 +17,8 @@ class _HomeState extends State<Home> {
   int strButton=0,stopButton=0,control=0,securitybutton=0;
   String str,stop="Off",security1="off";
   String user="",pass="";
+  int fast=0,fastplus;
+  String fastpn="0";
   IotModel iotModel;
 
   FirebaseDatabase firebaseDatabase = FirebaseDatabase.instance;
@@ -45,6 +47,7 @@ class _HomeState extends State<Home> {
       user=iotModel.user;
       pass=iotModel.pass;
       control=iotModel.control;
+      fastpn=iotModel.fastpn;
 
       
       checkSwitch();
@@ -63,6 +66,7 @@ class _HomeState extends State<Home> {
     map['user']=user;
     map['pass']=pass;
     map['control']=control;
+    map['fast']=fastpn;
 
     await databaseReference.set(map).then((response){
       print('Edit Success');
@@ -90,8 +94,8 @@ class _HomeState extends State<Home> {
 
 Widget buttonstart(){
    return Container(
-     height:100,
-      padding: new EdgeInsets.all(10.0),
+     height:80,
+      padding: new EdgeInsets.all(7.0),
      child: RaisedButton(
        onPressed: (){
          setState(() {
@@ -121,9 +125,9 @@ Widget buttonstart(){
             borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
-            constraints: BoxConstraints(maxWidth:100.0, minHeight: 50.0),
+            constraints: BoxConstraints(maxWidth:80.0, minHeight: 50.0),
             alignment:Alignment.center,
-            child: Icon(Icons.vpn_key,size: 30,)
+            child: Icon(Icons.vpn_key,size: 25,)
           ),
         ),
      ),
@@ -132,8 +136,8 @@ Widget buttonstart(){
 
  Widget buttonStop(){
    return Container(
-     height: 100,
-      padding: new EdgeInsets.all(10.0),
+     height: 80,
+      padding: new EdgeInsets.all(7.0),
      child: RaisedButton(
        onPressed: (){
          setState(() {
@@ -162,14 +166,14 @@ Widget buttonstart(){
             borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
-            constraints: BoxConstraints(maxWidth: 100.0, minHeight: 50.0),
+            constraints: BoxConstraints(maxWidth: 80.0, minHeight: 50.0),
             alignment:Alignment.center,
             child: Text(
               "$stop",
               textAlign: TextAlign.center,
               style: TextStyle(
               color: Colors.black,
-              fontSize:35.0,
+              fontSize:30.0,
               fontWeight:FontWeight.bold,
               fontFamily: 'Muffin-Regular'
           ),
@@ -182,8 +186,8 @@ Widget buttonstart(){
 
  Widget buttonforward(){
    return Container(
-     height:130,
-      padding: new EdgeInsets.all(0.0),
+     height:110,
+      padding: new EdgeInsets.all(5.0),
      child: RaisedButton(
        onPressed: (){
           setState(() {
@@ -213,9 +217,9 @@ Widget buttonstart(){
             borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
-            constraints: BoxConstraints(maxWidth:120.0, minHeight: 50.0),
+            constraints: BoxConstraints(maxWidth:100.0, minHeight: 50.0),
             alignment:Alignment.center,
-            child: Icon(Icons.arrow_upward,size: 40,color: Colors.black,)
+            child: Icon(Icons.arrow_upward,size: 35,color: Colors.black,)
           ),
         ),
      ),
@@ -224,7 +228,7 @@ Widget buttonstart(){
 
 Widget buttonbackward(){
    return Container(
-     height:130,
+     height:100,
       padding: new EdgeInsets.all(0.0),
      child: RaisedButton(
        onPressed: (){
@@ -255,7 +259,7 @@ Widget buttonbackward(){
             borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
-            constraints: BoxConstraints(maxWidth:120.0, minHeight: 50.0),
+            constraints: BoxConstraints(maxWidth:100.0, minHeight: 50.0),
             alignment:Alignment.center,
             child: Icon(Icons.arrow_downward,size: 40,color: Colors.black,)
           ),
@@ -266,7 +270,7 @@ Widget buttonbackward(){
   
 Widget buttonleft(){
    return Container(
-     height:130,
+     height:100,
       padding: new EdgeInsets.all(0.0),
      child: RaisedButton(
        onPressed: (){
@@ -297,7 +301,7 @@ Widget buttonleft(){
             borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
-            constraints: BoxConstraints(maxWidth:120.0, minHeight: 50.0),
+            constraints: BoxConstraints(maxWidth:100.0, minHeight: 50.0),
             alignment:Alignment.center,
             child: Icon(Icons.arrow_back,size: 40,color: Colors.black,)
           ),
@@ -308,7 +312,7 @@ Widget buttonleft(){
 
  Widget buttonright(){
    return Container(
-     height:130,
+     height:100,
       padding: new EdgeInsets.all(0.0),
      child: RaisedButton(
        onPressed: (){
@@ -339,7 +343,7 @@ Widget buttonleft(){
             borderRadius: BorderRadius.circular(40.0)
           ),
           child: Container(
-            constraints: BoxConstraints(maxWidth:120.0, minHeight: 50.0),
+            constraints: BoxConstraints(maxWidth:100.0, minHeight: 50.0),
             alignment:Alignment.center,
             child: Icon(Icons.arrow_forward,size: 40,color: Colors.black,)
           ),
@@ -350,7 +354,7 @@ Widget buttonleft(){
 
 Widget buttonclose(){
    return Container(
-     height:130,
+     height:110,
       padding: new EdgeInsets.all(10.0),
      child: RaisedButton(
        onPressed: (){
@@ -381,7 +385,7 @@ Widget buttonclose(){
             borderRadius: BorderRadius.circular(60.0)
           ),
           child: Container(
-            constraints: BoxConstraints(maxWidth:100.0, minHeight: 50.0),
+            constraints: BoxConstraints(maxWidth:90.0, minHeight: 50.0),
             alignment:Alignment.center,
             child: Icon(Icons.report_off,size: 40,color: Colors.black,)
           ),
@@ -389,40 +393,6 @@ Widget buttonclose(){
      ),
    );
  }
-  
-  // Widget buttonclose(){
-  //   return Container(
-  //     padding: new EdgeInsets.all(10.0),
-  //     child: SizedBox(
-  //       height: 100,
-  //       width: 100,
-  //       child:  RaisedButton.icon(
-  //         color: Colors.lightGreenAccent[400],
-  //         shape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.circular(20.0)
-  //         ),
-  //         onPressed: (){
-  //           setState(() {
-  //             readData();
-  //             control=control;
-  //             if(control==0){
-  //               control=0;
-  //               //str="ON";
-  //             }
-  //             else{
-  //               control=0;
-  //               //str="Off";
-  //             }
-  //             print('$strButton');
-  //             editDatabase();
-  //           });
-  //         },
-  //         icon: Icon(Icons.report_off,size: 40,),
-  //         label: Text(''),
-  //         ),
-  //     ),
-  //   );
-  // }
 
   Widget buttonforwardright1(){
     return Container(
@@ -481,7 +451,6 @@ Widget buttonclose(){
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(40.0)),
         padding: EdgeInsets.all(5.0),
-        
         child: Ink(
           decoration: BoxDecoration(
             gradient:LinearGradient(colors: [Colors.cyanAccent,Colors.blueAccent],
@@ -491,14 +460,14 @@ Widget buttonclose(){
             borderRadius: BorderRadius.circular(30.0)
           ),
           child: Container(
-            constraints: BoxConstraints(maxWidth:380.0, minHeight: 10.0),
+            constraints: BoxConstraints(maxWidth:100.0, minHeight: 50.0),
             alignment:Alignment.center,
             child: Text(
-              "security  :  $security1",
+              "Safe : $security1",
               textAlign: TextAlign.center,
               style: TextStyle(
               color: Colors.black,
-              fontSize:35.0,
+              fontSize:25.0,
               fontWeight:FontWeight.bold,
               fontFamily: 'Muffin-Regular'
           ),
@@ -511,13 +480,14 @@ Widget buttonclose(){
 
   Widget mixstrstop(){
     return Container(
-      padding: new EdgeInsets.all(0.0),
+      padding: new EdgeInsets.all(10.0),
       child: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
+              buttonStop(),
               buttonstart(),
-              buttonStop()
+              securityBut()
             ],
         ),
       ),
@@ -568,19 +538,19 @@ Widget buttonclose(){
       ),
     ); 
   }
-  Widget mixsecurity(){
-    return Container(
-      padding: new EdgeInsets.all(0.0),
-      child: Center(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-              securityBut()
-            ],
-        ),
-      ),
-    ); 
-  }
+  // Widget mixsecurity(){
+  //   return Container(
+  //     padding: new EdgeInsets.all(0.0),
+  //     child: Center(
+  //       child: Row(
+  //         mainAxisSize: MainAxisSize.min,
+  //         children: <Widget>[
+  //             securityBut()
+  //           ],
+  //       ),
+  //     ),
+  //   ); 
+  // }
 
   Widget showText() {
     return Text(
@@ -610,6 +580,173 @@ Widget buttonclose(){
           ),
             
     );
+  }
+
+  Widget fastplus1(){
+    readData();
+   return Container(
+      padding: new EdgeInsets.all(5.0),
+     child: RaisedButton(
+       onPressed: (){
+         setState(() {
+              fast=fast;
+              if(fast==0){
+                readData();
+                fast =int.parse(fastpn)+1;
+                if(fastplus<0){
+                  fast=iotModel.fast;
+                  fast=0;
+                }
+            
+                fastpn=(fastplus).toString();
+                fast=iotModel.fast;
+
+              }
+              else {
+               fast=0;
+                readData();
+                fast=int.parse(fastpn)+1;
+                if(fast<0){
+                  fast=0;
+                }
+                fastpn=(fast).toString();
+              }
+              print('$fast');
+              editDatabase();
+              readData();
+             
+            });
+         },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(100.0)),
+        padding: EdgeInsets.all(3.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.blueAccent,Colors.cyanAccent],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(30.0)
+          ),
+          child: Container(
+            constraints: BoxConstraints(maxWidth:80.0, maxHeight: 50.0),
+            alignment:Alignment.center,
+            child: Icon(Icons.add)
+          ),
+        ),
+     ),
+   );
+ }
+
+ Widget fastnative(){
+    readData();
+   return Container(
+      padding: new EdgeInsets.all(5.0),
+     child: RaisedButton(
+       onPressed: (){
+         setState(() {
+              fast=fast;
+              if(fast==0){
+                readData();
+                fast =int.parse(fastpn)-1;
+                if(fastplus<0){
+                  fast=iotModel.fast;
+                  fast=0;
+                }
+            
+                fastpn=(fastplus).toString();
+                fast=iotModel.fast;
+
+              }
+              else {
+               fast=0;
+                readData();
+                fast=int.parse(fastpn)-1;
+                if(fast<0){
+                  fast=0;
+                }
+                fastpn=(fast).toString();
+              }
+              print('$fast');
+              editDatabase();
+              readData();
+             
+            });
+         },
+      shape: RoundedRectangleBorder(
+         borderRadius: BorderRadius.circular(100.0),
+         ),
+        padding: EdgeInsets.all(3.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient:LinearGradient(colors: [Colors.blueAccent,Colors.cyanAccent],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(50.0)
+          ),
+          child: Container(
+            constraints: BoxConstraints(maxWidth:80.0, maxHeight: 50.0),
+            alignment:Alignment.center,
+            child: Icon(Icons.remove)
+          ),
+        ),
+     ),
+   );
+ }
+
+Widget pn(){
+  return Row(
+    mainAxisSize: MainAxisSize.min,
+    children: <Widget>[
+     fastnative(),Text(' '),showRightwhell(),Text(' '),fastplus1()
+    ],
+  );
+}
+Widget mixfast(){
+    return Container(
+      padding: new EdgeInsets.all(10.0),
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text('ความเร็วใบพัด',
+     textAlign: TextAlign.center,
+              style: TextStyle(
+              color: Colors.black,
+              fontSize:25.0,
+              fontWeight:FontWeight.bold,
+              fontFamily: 'Muffin-Regular'
+          ),
+     ) ,
+              pn(),Text(' ')
+            ],
+        ),
+      ),
+    ); 
+  }
+
+  Widget showRightwhell(){
+    readData();
+    return Text(fastpn.toString(),
+    style: TextStyle(fontSize:32.0,
+           color:Colors.black,
+           fontWeight:FontWeight.bold,
+           fontFamily: 'Muffin-Regular'
+           ),);
+  }
+
+ Widget blockcenter2(){
+    return Container(child: Container(
+          width: 400.0,
+          padding: EdgeInsets.all(0.0),
+            child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              showRightwhell(),Text(''),Text(''),pn()
+              ],
+          ),
+          ),);
   }
 
   Widget test(){
@@ -693,8 +830,11 @@ Widget buttonclose(){
           child: Center(
             child : Wrap(
               children: <Widget>[
-                mixsecurity(),
+                //mixsecurity(),
                 mixstrstop(),
+                Text("\n"),
+                mixfast(),
+                Text("\n\n"),
                 mixfor(),
                 mixmix(),
                 mixback()

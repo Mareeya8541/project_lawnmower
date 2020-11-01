@@ -439,7 +439,7 @@ class _MoveForwardPageState extends State<MoveForwardPage> {
   // }
 Widget blockforward1(){
     return Container(child: Container(
-          width: 400.0,
+          width: 350.0,
           padding: EdgeInsets.all(5.0),
             child: Column(
             mainAxisSize: MainAxisSize.min,

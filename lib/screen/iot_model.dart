@@ -2,13 +2,13 @@
 
 class IotModel{
   int buttonstr,buttonstop,control,left,right,fast,fast2,speed,time,security;
-  String namestr,user,pass,delay,leftpn,rightpn,timepn;
+  String namestr,user,pass,delay,leftpn,rightpn,timepn,fastpn;
 
   IotModel(
     this.buttonstr,this.buttonstop,this.user,
     this.pass,this.delay,this.left,this.right,
     this.time,this.fast,this.control,this.leftpn,
-    this.rightpn,this.fast2,this.speed,this.timepn,this.security
+    this.rightpn,this.fast2,this.speed,this.timepn,this.security,this.fastpn
   );
 
     IotModel.formMap(Map<dynamic,dynamic>map){
@@ -21,7 +21,8 @@ class IotModel{
       left=map['left'];
       right=map['right'];
       timepn=map['time'];
-      fast=map['fast'];
+      //fast=map['fast'];
+      fastpn=map['fast'];
       control=map['control'];
       speed=map['speed'];
     }
@@ -38,7 +39,8 @@ class IotModel{
       map['left']=left;
       map['right']=right;
       map['time']=timepn;
-      map['fast']=fast;
+     // map['fast']=fast;
+      map['fast']=fastpn;
       map['control']=control;
       map['speed']=speed;
 

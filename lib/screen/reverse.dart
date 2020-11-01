@@ -442,7 +442,7 @@ class _ReversePageState extends State<ReversePage> {
   }
   Widget blockcenter2(){
     return Container(child: Container(
-          width: 400.0,
+          width: 350.0,
           padding: EdgeInsets.all(10.0),
             child: Column(
             mainAxisSize: MainAxisSize.min,

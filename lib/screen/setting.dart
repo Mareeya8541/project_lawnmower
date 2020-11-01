@@ -375,7 +375,7 @@ Widget buttonSetPropeller(){
             child : Wrap(
               children: <Widget>[
                  blockcontrol1(),blockcontrol2(),blockcontrol3(),
-                 blockcontrol4(),blockcontrol5(),blockcontrol6()
+                 blockcontrol4(),blockcontrol5(),//blockcontrol6()
             ],)
           ),
       ),)
